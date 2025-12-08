@@ -304,22 +304,27 @@
       }
     });
 
-    // Example client-side submission handler (replace with actual backend)
+    // Submit to Formspree
     inquiryForm.addEventListener('submit', (e) => {
       e.preventDefault();
       formMsg.classList.remove('hidden');
       formMsg.textContent = 'Sending...';
 
-      // Collect form data
       const data = new FormData(inquiryForm);
-      // Example: post to an endpoint. Replace url below with your real API endpoint or use Formspree/Zapier.
-      fetch('#', { method: 'POST', body: data })
+      fetch('https://formspree.io/f/manrdekl', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
         .then(res => {
-          // pretend success (since default action is #)
-          formMsg.textContent = 'Thanks! Your inquiry was submitted. We will follow up via the contact you provided.';
-          inquiryForm.reset();
-          spaceCapacityWrap.classList.add('hidden');
-          needPlanningWrap.classList.add('hidden');
+          if (res.ok) {
+            formMsg.textContent = 'Thanks! Your inquiry was submitted. We will follow up via the contact you provided.';
+            inquiryForm.reset();
+            spaceCapacityWrap.classList.add('hidden');
+            needPlanningWrap.classList.add('hidden');
+          } else {
+            formMsg.textContent = 'There was an error submitting the form. Please email ryan@nodaluxe.com directly.';
+          }
         })
         .catch(err => {
           formMsg.textContent = 'There was an error submitting the form. Please email ryan@nodaluxe.com directly.';
