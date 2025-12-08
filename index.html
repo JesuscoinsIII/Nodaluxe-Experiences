@@ -378,34 +378,63 @@
       }
     });
 
-    inquiryForm.addEventListener('submit', (e) => {
+    // Supabase configuration
+    const SUPABASE_URL = 'https://fdezwoglwhbkhzhmnxxv.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZkZXp3b2dsd2hia2h6aG1ueHh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUxODYzMDksImV4cCI6MjA4MDc2MjMwOX0.JlOALehErZF_Ret4XokYWovch6K6fVvRiaj3DKtBLHs';
+
+    inquiryForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       formMsg.classList.remove('hidden');
       formMsg.textContent = 'Sending...';
       formMsg.className = 'text-sm mt-2 text-center text-gold';
 
-      const data = new FormData(inquiryForm);
-      fetch('https://formspree.io/f/manrdekl', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      })
-        .then(res => {
-          if (res.ok) {
-            formMsg.textContent = 'Thanks! Your inquiry was submitted. We will follow up via the contact you provided.';
-            formMsg.className = 'text-sm mt-2 text-center text-green-400';
-            inquiryForm.reset();
-            spaceCapacityWrap.classList.add('hidden');
-            needPlanningWrap.classList.add('hidden');
-          } else {
-            formMsg.textContent = 'There was an error submitting the form. Please email info@nodaluxe.com directly.';
-            formMsg.className = 'text-sm mt-2 text-center text-red-400';
-          }
-        })
-        .catch(err => {
+      const formData = new FormData(inquiryForm);
+      const data = {
+        trip_name: formData.get('trip_name'),
+        date: formData.get('date'),
+        time_window: formData.get('time_window'),
+        meetpoint: formData.get('meetpoint'),
+        duration: formData.get('duration'),
+        party_size: formData.get('party_size'),
+        vehicle_type: formData.get('vehicle_type'),
+        space_booked: formData.get('space_booked'),
+        space_capacity: formData.get('space_capacity'),
+        need_planning: formData.get('need_planning'),
+        contact_name: formData.get('contact_name'),
+        contact_info: formData.get('contact_info'),
+        notes: formData.get('notes'),
+        flag_send_to_ryan: formData.get('flag_send_to_ryan')
+      };
+
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/inquiries`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          formMsg.textContent = 'Thanks! Your inquiry was submitted. We will follow up via the contact you provided.';
+          formMsg.className = 'text-sm mt-2 text-center text-green-400';
+          inquiryForm.reset();
+          spaceCapacityWrap.classList.add('hidden');
+          needPlanningWrap.classList.add('hidden');
+        } else {
+          const errorData = await response.json();
+          console.error('Supabase error:', errorData);
           formMsg.textContent = 'There was an error submitting the form. Please email info@nodaluxe.com directly.';
           formMsg.className = 'text-sm mt-2 text-center text-red-400';
-        });
+        }
+      } catch (err) {
+        console.error('Submission error:', err);
+        formMsg.textContent = 'There was an error submitting the form. Please email info@nodaluxe.com directly.';
+        formMsg.className = 'text-sm mt-2 text-center text-red-400';
+      }
     });
   </script>
 </body>
