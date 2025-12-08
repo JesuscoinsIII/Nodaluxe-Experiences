@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nodaluxe Experiences — Book Vehicles & Events (Texas)</title>
+  <meta name="description" content="Nodaluxe — professional hourly & event transportation across Texas. Book a vehicle or request event transport & coordination." />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+  <header class="bg-white shadow">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <div class="text-2xl font-semibold">Nodaluxe</div>
+        <nav class="hidden md:flex gap-4 text-sm text-gray-600">
+          <a href="#services" class="hover:underline">Services</a>
+          <a href="#spaces" class="hover:underline">Event Spaces</a>
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#contact" class="hover:underline">Contact</a>
+        </nav>
+      </div>
+      <div class="text-sm">
+        <a href="tel:+14696698878" class="mr-4">469-669-8878</a>
+        <a href="mailto:ryan@nodaluxe.com" class="bg-black text-white px-3 py-1 rounded">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <section class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-bold leading-tight">Seamless vehicle & event transportation across Texas</h1>
+        <p class="mt-4 text-lg text-gray-700">Professional chauffeurs, hourly charters, and event logistics—book vehicles or get Nodaluxe to help coordinate your next event.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="#inquiry" class="inline-block bg-black text-white px-5 py-3 rounded">Book an Inquiry</a>
+          <a href="#services" class="inline-block border border-gray-300 px-5 py-3 rounded text-gray-700">View Services</a>
+        </div>
+
+        <div class="mt-8 text-sm text-gray-600">
+          <div>Service area: <strong>Texas</strong></div>
+          <div class="mt-2">Socials:
+            <a class="ml-2 underline" href="https://x.com/NodaluXe" target="_blank" rel="noopener">X</a>
+            <a class="ml-2 underline" href="https://www.instagram.com/nodaluxe.experiences/" target="_blank" rel="noopener">Instagram</a>
+            <a class="ml-2 underline" href="https://www.linkedin.com/in/jesuscoins/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="ml-2 underline" href="https://t.me/+9S-brl3M-nEyNDU5" target="_blank" rel="noopener">Telegram</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <aside id="inquiry" class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-2xl font-semibold">Order inquiry — Book your next event</h2>
+        <p class="text-sm text-gray-600 mt-1">Tell us the basics and we'll get back within 24–48 hours.</p>
+
+        <!-- Replace action with your endpoint or Formspree/Zapier webhook -->
+        <form id="inquiryForm" class="mt-4 space-y-4" method="POST" action="https://formspree.io/f/manrdekl">
+          <!-- Trip Info -->
+          <div>
+            <label class="block text-sm font-medium">What do you want to name your trip?</label>
+            <input name="trip_name" class="mt-1 w-full border rounded px-3 py-2" placeholder="e.g. Moonflower Dinner Shuttle" />
+          </div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-sm font-medium">When are you going?</label>
+              <input type="date" name="date" class="mt-1 w-full border rounded px-3 py-2" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">What time?</label>
+              <select name="time_window" class="mt-1 w-full border rounded px-3 py-2">
+                <option value="">Select</option>
+                <option>Morning (6AM - 12PM)</option>
+                <option>Afternoon (12PM - 5PM)</option>
+                <option>Evening (5PM - 10PM)</option>
+                <option>Late Night (10PM - 2AM)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium">Meetpoint or destination</label>
+            <input name="meetpoint" class="mt-1 w-full border rounded px-3 py-2" placeholder="Address or venue name" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+              <label class="block text-sm font-medium">For how long?</label>
+              <select name="duration" class="mt-1 w-full border rounded px-3 py-2">
+                <option value="">Select</option>
+                <option>1 hour</option>
+                <option>2 hours</option>
+                <option>3 hours</option>
+                <option>4 hours</option>
+                <option>6 hours</option>
+                <option>8+ hours</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium">How many people?</label>
+              <select name="party_size" class="mt-1 w-full border rounded px-3 py-2">
+                <option value="">Select</option>
+                <option>1-2 passengers</option>
+                <option>3-5 passengers</option>
+                <option>6-10 passengers</option>
+                <option>11-14 passengers</option>
+                <option>15-29 passengers</option>
+                <option>29-39 passengers</option>
+                <option>40-56 passengers</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Vehicle type</label>
+              <select name="vehicle_type" class="mt-1 w-full border rounded px-3 py-2">
+                <option value="">Select</option>
+                <option>Limo</option>
+                <option>Limo Bus</option>
+                <option>Party Bus</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- New question: Have you already booked your event space? -->
+          <div>
+            <label class="block text-sm font-medium">Have you already booked your event space?</label>
+            <div class="mt-2 flex gap-3 items-center">
+              <label class="inline-flex items-center"><input type="radio" name="space_booked" value="yes" class="spaceBooked"/> <span class="ml-2">Yes</span></label>
+              <label class="inline-flex items-center"><input type="radio" name="space_booked" value="no" class="spaceBooked"/> <span class="ml-2">No</span></label>
+            </div>
+          </div>
+
+          <!-- Conditional: If yes -->
+          <div id="spaceCapacityWrap" class="hidden">
+            <label class="block text-sm font-medium">If yes, how many people does it hold?</label>
+            <input name="space_capacity" class="mt-1 w-full border rounded px-3 py-2" placeholder="e.g. 120" />
+          </div>
+<!-- Conditional: If no -->
+          <div id="needPlanningWrap" class="hidden space-y-2">
+            <div>
+              <label class="block text-sm font-medium">Would you like Nodaluxe to help plan your event?</label>
+              <div class="mt-2 flex gap-3">
+                <label class="inline-flex items-center"><input type="radio" name="need_planning" value="yes" /> <span class="ml-2">Yes — please help</span></label>
+                <label class="inline-flex items-center"><input type="radio" name="need_planning" value="no" /> <span class="ml-2">No — I will arrange</span></label>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500">If you choose "Yes", we'll flag the lead and send an email to <strong>ryan@nodaluxe.info</strong>.</p>
+          </div>
+
+          <!-- Contact -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-sm font-medium">Your name</label>
+              <input name="contact_name" required class="mt-1 w-full border rounded px-3 py-2" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Phone or email</label>
+              <input name="contact_info" required placeholder="Phone or Email" class="mt-1 w-full border rounded px-3 py-2" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium">Anything else we should know?</label>
+            <textarea name="notes" rows="3" class="mt-1 w-full border rounded px-3 py-2"></textarea>
+          </div>
+
+          <input type="hidden" name="flag_send_to_ryan" id="flagToRyan" value="no" />
+
+          <div class="flex items-center justify-between">
+            <small class="text-xs text-gray-500">By submitting you agree to our <a href="#terms" class="underline">Terms</a> and <a href="#privacy" class="underline">Privacy Policy</a>.</small>
+            <div>
+              <button type="submit" class="bg-black text-white px-4 py-2 rounded">Submit Inquiry</button>
+            </div>
+          </div>
+
+          <div id="formMsg" class="hidden text-sm mt-2"></div>
+        </form>
+      </aside>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="mt-16">
+      <h3 class="text-2xl font-semibold">Services</h3>
+      <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-5 rounded shadow">
+          <h4 class="font-semibold">Point-to-Point</h4>
+          <p class="text-sm mt-2">Seamless transportation between any destinations in Austin—perfect for business, airport transfers, and special occasions.</p>
+          <ul class="mt-3 text-sm text-gray-600 space-y-1">
+            <li>• Door-to-door service</li>
+            <li>• Real-time tracking</li>
+            <li>• Professional chauffeur</li>
+          </ul>
+        </div>
+        <div class="bg-white p-5 rounded shadow">
+          <h4 class="font-semibold">Hourly Charter</h4>
+          <p class="text-sm mt-2">Flexible hourly bookings for multi-stop journeys, events, or when you need transportation on standby.</p>
+          <ul class="mt-3 text-sm text-gray-600 space-y-1">
+            <li>• 2-hour minimum for airport runs</li>
+            <li>• 5-hour minimum for other services</li>
+            <li>• Wait time included where applicable</li>
+          </ul>
+        </div>
+        <div class="bg-white p-5 rounded shadow">
+          <h4 class="font-semibold">Event Transportation & Coordination</h4>
+          <p class="text-sm mt-2">Weddings, corporate events, celebrations, raves and mega-events.</p>
+          <ul class="mt-3 text-sm text-gray-600 space-y-1">
+            <li>• Event coordination</li>
+            <li>• Custom packages</li>
+            <li>• Moonflower Hill available as a booking option</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+<!-- Partners / Event spaces -->
+    <section id="spaces" class="mt-16">
+      <h3 class="text-2xl font-semibold">Partner Event Spaces</h3>
+      <p class="text-sm text-gray-600 mt-2">We partner with these venues for event coordination and transportation.</p>
+
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-5 rounded shadow">
+          <h4 class="font-semibold">Moonflower Hill</h4>
+          <p class="text-sm text-gray-600">Lake Travis — partner venue. Book transport to this location.</p>
+          <a href="https://moonflowerhill.com" target="_blank" rel="noopener" class="text-sm underline">Visit Moonflower Hill</a>
+        </div>
+
+        <div class="bg-white p-5 rounded shadow">
+          <h4 class="font-semibold">Willow Spence (Downtown Austin Retreat Center)</h4>
+          <p class="text-sm text-gray-600">1004 Spence St, Austin, TX 78702</p>
+        </div>
+
+        <div class="bg-white p-5 rounded shadow">
+          <h4 class="font-semibold">Volente Location</h4>
+          <p class="text-sm text-gray-600">14000 Farm to Market Rd 2769 #9, Volente, TX 78641</p>
+        </div>
+
+        <div class="bg-white p-5 rounded shadow">
+          <h4 class="font-semibold">The Concourse Project</h4>
+          <p class="text-sm text-gray-600">8509 Burleson Rd, Austin, TX 78719</p>
+        </div>
+
+        <div class="bg-white p-5 rounded shadow">
+          <h4 class="font-semibold">The Betty</h4>
+          <p class="text-sm text-gray-600">510 Rio Grande St, Austin, TX 78701</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mt-16">
+      <h3 class="text-2xl font-semibold">About Us</h3>
+      <p class="text-sm text-gray-600 mt-3">Nodaluxe blends professional event transportation with bespoke planning services—focused on safety, punctuality, and a premium experience.</p>
+    </section>
+
+    <!-- Footer / policies -->
+    <footer class="mt-16 border-t pt-6 pb-12 text-sm text-gray-600">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6">
+        <div>
+          <div class="font-semibold">Contact</div>
+          <div class="mt-2">Phone: <a href="tel:+14696698878">469-669-8878</a></div>
+          <div class="mt-1">Email: <a href="mailto:ryan@nodaluxe.com">ryan@nodaluxe.com</a></div>
+        </div>
+        <div>
+          <div class="font-semibold">Quick Links</div>
+          <ul class="mt-2 space-y-1">
+            <li><a href="#services" class="underline">Services</a></li>
+            <li><a href="#spaces" class="underline">Event Spaces</a></li>
+            <li><a href="#about" class="underline">About</a></li>
+            <li><a href="#terms" class="underline">Terms of Service</a></li>
+            <li><a href="#privacy" class="underline">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold">Follow</div>
+          <div class="mt-2">X · Instagram · LinkedIn · Telegram</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Conditional form logic
+    const radios = document.querySelectorAll('.spaceBooked');
+    const spaceCapacityWrap = document.getElementById('spaceCapacityWrap');
+    const needPlanningWrap = document.getElementById('needPlanningWrap');
+    const flagToRyan = document.getElementById('flagToRyan');
+    const inquiryForm = document.getElementById('inquiryForm');
+    const formMsg = document.getElementById('formMsg');
+
+    radios.forEach(r => r.addEventListener('change', (e) => {
+      if (e.target.value === 'yes') {
+        spaceCapacityWrap.classList.remove('hidden');
+        needPlanningWrap.classList.add('hidden');
+        flagToRyan.value = 'no';
+      } else {
+        spaceCapacityWrap.classList.add('hidden');
+        needPlanningWrap.classList.remove('hidden');
+        // default no until user selects planning=yes
+        flagToRyan.value = 'no';
+      }
+    }));
+// watch planning yes/no radio to set flag for Ryan
+    inquiryForm.addEventListener('change', (e) => {
+      if (e.target.name === 'need_planning') {
+        flagToRyan.value = (e.target.value === 'yes') ? 'yes' : 'no';
+      }
+    });
+
+    // Example client-side submission handler (replace with actual backend)
+    inquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formMsg.classList.remove('hidden');
+      formMsg.textContent = 'Sending...';
+
+      // Collect form data
+      const data = new FormData(inquiryForm);
+      // Example: post to an endpoint. Replace url below with your real API endpoint or use Formspree/Zapier.
+      fetch('#', { method: 'POST', body: data })
+        .then(res => {
+          // pretend success (since default action is #)
+          formMsg.textContent = 'Thanks! Your inquiry was submitted. We will follow up via the contact you provided.';
+          inquiryForm.reset();
+          spaceCapacityWrap.classList.add('hidden');
+          needPlanningWrap.classList.add('hidden');
+        })
+        .catch(err => {
+          formMsg.textContent = 'There was an error submitting the form. Please email ryan@nodaluxe.com directly.';
+        });
+    });
+  </script>
+</body>
+</html>
