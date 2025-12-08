@@ -53,8 +53,7 @@
       <div class="flex items-center space-x-6">
         <div class="text-2xl font-bold text-gold">Nodaluxe</div>
         <nav class="hidden md:flex gap-6 text-sm text-gray-300">
-          <a href="#spaces" class="hover:text-gold transition">Venues</a>
-          <a href="#inquiry" class="hover:text-gold transition">Book Event</a>
+          <a href="#spaces" class="hover:text-gold transition">Partner Venues</a>
           <a href="/sponsorships.html" class="hover:text-gold transition">Sponsorships</a>
           <a href="#about" class="hover:text-gold transition">About</a>
           <a href="/contact.html" class="hover:text-gold transition">Contact</a>
@@ -62,135 +61,12 @@
       </div>
       <div class="text-sm flex items-center gap-4">
         <a href="tel:+14696698878" class="text-gray-300 hover:text-gold transition">469-669-8878</a>
-        <a href="#inquiry" class="bg-gold text-black px-4 py-2 rounded font-semibold hover:bg-gold-dark transition">Book Now</a>
+        <a href="/contact.html" class="bg-gold text-black px-4 py-2 rounded font-semibold hover:bg-gold-dark transition">Contact Us</a>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-6 pt-20">
-
-    <!-- Inquiry Form -->
-    <section id="inquiry" class="py-20">
-      <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 md:p-12">
-        <div class="text-center mb-10">
-          <h2 class="text-3xl font-bold">Book Your <span class="text-gold">Experience</span></h2>
-          <p class="text-gray-400 mt-2">Tell us the basics and we'll get back within 24–48 hours.</p>
-        </div>
-
-        <form id="inquiryForm" class="space-y-6 max-w-3xl mx-auto" method="POST" action="https://formspree.io/f/manrdekl">
-          <div>
-            <label class="block text-sm font-medium text-gray-300">What do you want to name your trip?</label>
-            <input name="trip_name" class="mt-1 w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="e.g. Moonflower Dinner Shuttle" />
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-300">When are you going?</label>
-              <input type="date" name="date" class="mt-1 w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-300">What time?</label>
-              <select name="time_window" class="mt-1 w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none">
-                <option value="">Select</option>
-                <option>Morning (6AM - 12PM)</option>
-                <option>Afternoon (12PM - 5PM)</option>
-                <option>Evening (5PM - 10PM)</option>
-                <option>Late Night (10PM - 2AM)</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-300">Meetpoint or destination</label>
-            <input name="meetpoint" class="mt-1 w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="Address or venue name" />
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-300">Duration</label>
-              <select name="duration" class="mt-1 w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none">
-                <option value="">Select</option>
-                <option>1 hour</option>
-                <option>2 hours</option>
-                <option>3 hours</option>
-                <option>4 hours</option>
-                <option>6 hours</option>
-                <option>8+ hours</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-300">Party size</label>
-              <select name="party_size" class="mt-1 w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none">
-                <option value="">Select</option>
-                <option>1-2 passengers</option>
-                <option>3-5 passengers</option>
-                <option>6-10 passengers</option>
-                <option>11-14 passengers</option>
-                <option>15-29 passengers</option>
-                <option>29-39 passengers</option>
-                <option>40-56 passengers</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-300">Vehicle type</label>
-              <select name="vehicle_type" class="mt-1 w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none">
-                <option value="">Select</option>
-                <option>Limo</option>
-                <option>Limo Bus</option>
-                <option>Party Bus</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-300">Have you already booked your event space?</label>
-            <div class="mt-2 flex gap-4">
-              <label class="inline-flex items-center text-gray-300"><input type="radio" name="space_booked" value="yes" class="spaceBooked text-gold focus:ring-gold"/> <span class="ml-2">Yes</span></label>
-              <label class="inline-flex items-center text-gray-300"><input type="radio" name="space_booked" value="no" class="spaceBooked text-gold focus:ring-gold"/> <span class="ml-2">No</span></label>
-            </div>
-          </div>
-
-          <div id="spaceCapacityWrap" class="hidden">
-            <label class="block text-sm font-medium text-gray-300">How many people does it hold?</label>
-            <input name="space_capacity" class="mt-1 w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="e.g. 120" />
-          </div>
-
-          <div id="needPlanningWrap" class="hidden">
-            <label class="block text-sm font-medium text-gray-300">Would you like Nodaluxe to help plan your event?</label>
-            <div class="mt-2 flex gap-4">
-              <label class="inline-flex items-center text-gray-300"><input type="radio" name="need_planning" value="yes" class="text-gold focus:ring-gold"/> <span class="ml-2">Yes — please help</span></label>
-              <label class="inline-flex items-center text-gray-300"><input type="radio" name="need_planning" value="no" class="text-gold focus:ring-gold"/> <span class="ml-2">No — I will arrange</span></label>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-300">Your name</label>
-              <input name="contact_name" required class="mt-1 w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-300">Phone or email</label>
-              <input name="contact_info" required placeholder="Phone or Email" class="mt-1 w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" />
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-300">Anything else we should know?</label>
-            <textarea name="notes" rows="3" class="mt-1 w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none"></textarea>
-          </div>
-
-          <input type="hidden" name="flag_send_to_ryan" id="flagToRyan" value="no" />
-
-          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <small class="text-xs text-gray-500">By submitting you agree to our <a href="#terms" class="text-gold hover:underline">Terms</a> and <a href="#privacy" class="text-gold hover:underline">Privacy Policy</a>.</small>
-            <button type="submit" class="bg-gold text-black px-8 py-3 rounded font-semibold hover:bg-gold-dark transition">Submit Inquiry</button>
-          </div>
-
-          <div id="formMsg" class="hidden text-sm mt-2 text-center"></div>
-        </form>
-      </div>
-    </section>
 
     <!-- Partner Event Spaces -->
     <section id="spaces" class="py-20">
@@ -348,8 +224,7 @@
         <div>
           <div class="font-semibold text-gold mb-4">Quick Links</div>
           <ul class="text-gray-400 text-sm space-y-2">
-            <li><a href="#spaces" class="hover:text-gold transition">Venues</a></li>
-            <li><a href="#inquiry" class="hover:text-gold transition">Book Event</a></li>
+            <li><a href="#spaces" class="hover:text-gold transition">Partner Venues</a></li>
             <li><a href="/sponsorships.html" class="hover:text-gold transition">Sponsorships</a></li>
             <li><a href="#about" class="hover:text-gold transition">About</a></li>
             <li><a href="/contact.html" class="hover:text-gold transition">Contact</a></li>
@@ -382,31 +257,6 @@
   </footer>
 
   <script>
-    const radios = document.querySelectorAll('.spaceBooked');
-    const spaceCapacityWrap = document.getElementById('spaceCapacityWrap');
-    const needPlanningWrap = document.getElementById('needPlanningWrap');
-    const flagToRyan = document.getElementById('flagToRyan');
-    const inquiryForm = document.getElementById('inquiryForm');
-    const formMsg = document.getElementById('formMsg');
-
-    radios.forEach(r => r.addEventListener('change', (e) => {
-      if (e.target.value === 'yes') {
-        spaceCapacityWrap.classList.remove('hidden');
-        needPlanningWrap.classList.add('hidden');
-        flagToRyan.value = 'no';
-      } else {
-        spaceCapacityWrap.classList.add('hidden');
-        needPlanningWrap.classList.remove('hidden');
-        flagToRyan.value = 'no';
-      }
-    }));
-
-    inquiryForm.addEventListener('change', (e) => {
-      if (e.target.name === 'need_planning') {
-        flagToRyan.value = (e.target.value === 'yes') ? 'yes' : 'no';
-      }
-    });
-
     // Toggle venue info panels
     function toggleVenueInfo(venueId) {
       const infoPanel = document.getElementById(`${venueId}-info`);
@@ -460,71 +310,6 @@
           msgEl.className = 'venue-msg text-xs text-center mt-2 text-red-400';
         }
       });
-    });
-
-    inquiryForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      formMsg.classList.remove('hidden');
-      formMsg.textContent = 'Sending...';
-      formMsg.className = 'text-sm mt-2 text-center text-gold';
-
-      const formData = new FormData(inquiryForm);
-      const data = {
-        trip_name: formData.get('trip_name'),
-        date: formData.get('date'),
-        time_window: formData.get('time_window'),
-        meetpoint: formData.get('meetpoint'),
-        duration: formData.get('duration'),
-        party_size: formData.get('party_size'),
-        vehicle_type: formData.get('vehicle_type'),
-        space_booked: formData.get('space_booked'),
-        space_capacity: formData.get('space_capacity'),
-        need_planning: formData.get('need_planning'),
-        contact_name: formData.get('contact_name'),
-        contact_info: formData.get('contact_info'),
-        notes: formData.get('notes'),
-        flag_send_to_ryan: formData.get('flag_send_to_ryan')
-      };
-
-      try {
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/inquiries`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': SUPABASE_ANON_KEY,
-            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-            'Prefer': 'return=minimal'
-          },
-          body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-          // Send email notification via Edge Function
-          fetch(`${SUPABASE_URL}/functions/v1/send-inquiry-email`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-            },
-            body: JSON.stringify(data)
-          }).catch(err => console.error('Email notification error:', err));
-
-          formMsg.textContent = 'Thanks! Your inquiry was submitted. We will follow up via the contact you provided.';
-          formMsg.className = 'text-sm mt-2 text-center text-green-400';
-          inquiryForm.reset();
-          spaceCapacityWrap.classList.add('hidden');
-          needPlanningWrap.classList.add('hidden');
-        } else {
-          const errorData = await response.json();
-          console.error('Supabase error:', errorData);
-          formMsg.textContent = 'There was an error submitting the form. Please email info@nodaluxe.com directly.';
-          formMsg.className = 'text-sm mt-2 text-center text-red-400';
-        }
-      } catch (err) {
-        console.error('Submission error:', err);
-        formMsg.textContent = 'There was an error submitting the form. Please email info@nodaluxe.com directly.';
-        formMsg.className = 'text-sm mt-2 text-center text-red-400';
-      }
     });
   </script>
 </body>
