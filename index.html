@@ -419,6 +419,16 @@
         });
 
         if (response.ok) {
+          // Send email notification via Edge Function
+          fetch(`${SUPABASE_URL}/functions/v1/send-inquiry-email`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+            },
+            body: JSON.stringify(data)
+          }).catch(err => console.error('Email notification error:', err));
+
           formMsg.textContent = 'Thanks! Your inquiry was submitted. We will follow up via the contact you provided.';
           formMsg.className = 'text-sm mt-2 text-center text-green-400';
           inquiryForm.reset();
