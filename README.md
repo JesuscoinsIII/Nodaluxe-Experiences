@@ -1,7 +1,7 @@
 # Nodaluxe-Experiences
 
 [![Build Status](<!-- Replace with your build status badge -->)](<!-- Replace with your build status link -->)
-[![License](<!-- Replace with your license badge -->)](<!-- Replace with your license link -->)
+[![License](<!-- Replace with your license badge -->)](c8cd8f3a2ac63c1c7cf6e2b9a074f724e8a19aea)
 
 ## Overview
 
