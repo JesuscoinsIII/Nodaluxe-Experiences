@@ -3,6 +3,13 @@
 ## Overview
 This document outlines the changes made to fix form functionality and required setup steps to complete deployment.
 
+### ✨ Key Highlight: No API Keys Required!
+The transportation booking form now uses **OpenStreetMap's Nominatim API** for address autocomplete, which is completely free and requires **no API key or signup**. This means:
+- ✅ Zero setup needed for address autocomplete
+- ✅ No billing or credit card required
+- ✅ Open source and privacy-friendly
+- ✅ Works immediately after deployment
+
 ---
 
 ## Changes Made
@@ -41,9 +48,9 @@ This document outlines the changes made to fix form functionality and required s
 - Maximum 150 characters with live counter
 - Character count displayed below textarea
 
-✅ **Google Maps Autocomplete**
+✅ **OpenStreetMap Address Autocomplete**
 - Added to pickup and dropoff location fields
-- Requires Google Maps API key (see setup below)
+- Uses free Nominatim API (no API key required)
 
 ✅ **Updated Endpoint**
 - Changed from `send-contact-email` to `send-transport-booking`
@@ -53,25 +60,7 @@ This document outlines the changes made to fix form functionality and required s
 
 ## Required Setup Steps
 
-### Step 1: Get Google Maps API Key
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select existing project
-3. Enable **Places API**
-4. Create API credentials (API Key)
-5. Restrict the key to your domain (nodaluxe.com, nodaluxe.netlify.app)
-6. Copy the API key
-
-### Step 2: Update book-now.html with API Key
-Open `book-now.html` and replace line 9:
-```html
-<!-- CURRENT (line 9): -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
-
-<!-- REPLACE WITH: -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_ACTUAL_KEY_HERE&libraries=places"></script>
-```
-
-### Step 3: Deploy Supabase Edge Function
+### Step 1: Deploy Supabase Edge Function
 ```bash
 # Navigate to project directory
 cd /home/secureterminal/Desktop/Nodaluxe-Experiences
@@ -83,7 +72,7 @@ npx supabase functions deploy send-transport-booking
 npx supabase functions list
 ```
 
-### Step 4: Verify Resend API Key
+### Step 2: Verify Resend API Key
 The Edge Function uses the `RESEND_API_KEY` environment variable. Verify it's set in Supabase:
 
 ```bash
@@ -94,7 +83,7 @@ npx supabase secrets list
 npx supabase secrets set RESEND_API_KEY=your_resend_api_key_here
 ```
 
-### Step 5: Test Email Addresses in Resend
+### Step 3: Test Email Addresses in Resend
 Ensure these email addresses are verified in your Resend account:
 - `events@nodaluxe.com` (sender for internal emails)
 - `ryan@nodaluxe.com` (sender for customer auto-responses)
@@ -208,11 +197,12 @@ After completing setup steps, test the following:
 
 ## Troubleshooting
 
-### Google Maps Autocomplete Not Working
-1. Check browser console for API key errors
-2. Verify Places API is enabled in Google Cloud Console
-3. Check API key restrictions (domain whitelist)
-4. Verify billing is enabled on Google Cloud project
+### OpenStreetMap Autocomplete Not Working
+1. Check browser console for errors
+2. Verify internet connection (Nominatim API is external)
+3. Check Nominatim API rate limits (max 1 request per second)
+4. Try typing at least 3 characters before expecting results
+5. Ensure autocomplete="off" is set on input fields
 
 ### Emails Not Being Received
 1. Check Supabase Edge Function logs: `npx supabase functions logs send-transport-booking`
@@ -231,12 +221,11 @@ After completing setup steps, test the following:
 
 ## Next Steps
 
-1. ✅ Add Google Maps API key to book-now.html
-2. ✅ Deploy send-transport-booking Edge Function to Supabase
-3. ✅ Verify Resend email addresses
-4. ✅ Test form submission end-to-end
-5. ✅ Commit and push all changes to Git
-6. ✅ Deploy to Netlify
+1. ✅ Deploy send-transport-booking Edge Function to Supabase
+2. ✅ Verify Resend email addresses
+3. ✅ Test form submission end-to-end
+4. ✅ Commit and push all changes to Git
+5. ✅ Deploy to Netlify
 
 ---
 
