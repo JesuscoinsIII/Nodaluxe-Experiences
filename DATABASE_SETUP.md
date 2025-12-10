@@ -158,6 +158,68 @@ The migration automatically creates these policies:
 2. Check that INSERT/UPDATE/DELETE operations are allowed
 3. For production, implement proper authentication
 
+## AI Event Assistant (Optional)
+
+The admin panel includes an AI-powered event generator that creates comprehensive event details from minimal input.
+
+### Setup AI Assistant
+
+**Step 1: Get Anthropic API Key**
+1. Sign up at https://console.anthropic.com
+2. Generate an API key from the dashboard
+3. Copy your API key
+
+**Step 2: Deploy Edge Function**
+```bash
+# Set your API key as a Supabase secret
+supabase secrets set ANTHROPIC_API_KEY=your-api-key-here
+
+# Deploy the Edge Function
+supabase functions deploy generate-event
+```
+
+**Step 3: Test the AI Assistant**
+1. Open admin panel: https://nodaluxe.netlify.app/admin-events.html
+2. Click "Show" on the AI Event Assistant section
+3. Enter minimal details:
+   - Event Name: "Austin Tech Mixer"
+   - City: "Austin"
+   - Date: Select a future date
+   - Event Type: "Corporate"
+4. Click "Generate Event Details with AI"
+5. Review generated content and save
+
+### How It Works
+
+**Input (Minimal):**
+- Event name
+- City
+- Date
+- Event type
+
+**Output (Comprehensive):**
+- Complete event title
+- URL-friendly slug
+- Start and end times
+- Venue details and address
+- Capacity estimate
+- Professional descriptions (short + full)
+- Appropriate Unsplash image URL
+- Pricing suggestions
+
+**Cost:** ~$0.003-0.015 per generation (Claude Sonnet 4)
+
+### Troubleshooting AI Assistant
+
+**"Failed to generate event details"**
+1. Check Edge Function is deployed: `supabase functions list`
+2. Verify API key is set: `supabase secrets list`
+3. Check function logs for errors
+
+**"Invalid JSON response"**
+- Claude may occasionally format incorrectly
+- Try regenerating or manual entry
+
 ## Next Steps
 
 1. **Add Authentication:**

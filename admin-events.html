@@ -26,6 +26,76 @@
     <!-- Alert Messages -->
     <div id="alertMessage" class="hidden mb-6 p-4 rounded border"></div>
 
+    <!-- AI Assistant Section -->
+    <section class="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-700/50 rounded-lg p-6 mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+          </svg>
+          <h2 class="text-xl font-semibold text-purple-400">AI Event Assistant</h2>
+        </div>
+        <button onclick="toggleAIAssistant()" class="text-sm text-gray-400 hover:text-purple-400 transition">
+          <span id="aiToggleText">Show</span>
+        </button>
+      </div>
+
+      <div id="aiAssistantPanel" class="hidden">
+        <p class="text-sm text-gray-300 mb-4">Provide minimal details and let AI generate all event fields automatically.</p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-sm text-gray-400 mb-1">Event Name *</label>
+            <input type="text" id="ai_event_name"
+              placeholder="Austin Tech Networking Mixer"
+              class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 text-white focus:border-purple-500 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block text-sm text-gray-400 mb-1">City *</label>
+            <input type="text" id="ai_city"
+              placeholder="Austin"
+              class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 text-white focus:border-purple-500 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block text-sm text-gray-400 mb-1">Date *</label>
+            <input type="date" id="ai_date"
+              class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 text-white focus:border-purple-500 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block text-sm text-gray-400 mb-1">Event Type *</label>
+            <select id="ai_event_type"
+              class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 text-white focus:border-purple-500 focus:outline-none">
+              <option value="">Select Type</option>
+              <option value="corporate">Corporate</option>
+              <option value="social">Social</option>
+              <option value="sports">Sports</option>
+              <option value="concerts">Concerts</option>
+              <option value="fundraising">Fundraising</option>
+              <option value="community">Community</option>
+            </select>
+          </div>
+        </div>
+
+        <button onclick="generateEventWithAI()" id="generateBtn"
+          class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded font-semibold hover:from-purple-700 hover:to-blue-700 transition flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          <span id="generateBtnText">Generate Event Details with AI</span>
+        </button>
+
+        <div id="aiProgress" class="hidden mt-4 p-4 bg-gray-800 rounded border border-gray-700">
+          <div class="flex items-center gap-3 text-sm text-gray-300">
+            <div class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid border-purple-400 border-r-transparent"></div>
+            <span id="aiProgressText">Generating event details...</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Create/Edit Event Form -->
     <section class="bg-gray-900 border border-gray-800 rounded-lg p-6 mb-8">
       <h2 class="text-xl font-semibold text-gold mb-4">
@@ -429,6 +499,96 @@
       setTimeout(() => {
         alert.classList.add('hidden');
       }, 5000);
+    }
+
+    // AI Assistant Functions
+    function toggleAIAssistant() {
+      const panel = document.getElementById('aiAssistantPanel');
+      const toggleText = document.getElementById('aiToggleText');
+
+      if (panel.classList.contains('hidden')) {
+        panel.classList.remove('hidden');
+        toggleText.textContent = 'Hide';
+      } else {
+        panel.classList.add('hidden');
+        toggleText.textContent = 'Show';
+      }
+    }
+
+    async function generateEventWithAI() {
+      const eventName = document.getElementById('ai_event_name').value.trim();
+      const city = document.getElementById('ai_city').value.trim();
+      const date = document.getElementById('ai_date').value;
+      const eventType = document.getElementById('ai_event_type').value;
+
+      // Validation
+      if (!eventName || !city || !date || !eventType) {
+        showAlert('error', 'Please fill in all AI assistant fields (Event Name, City, Date, Event Type)');
+        return;
+      }
+
+      // Show progress
+      document.getElementById('aiProgress').classList.remove('hidden');
+      document.getElementById('generateBtn').disabled = true;
+      document.getElementById('generateBtnText').textContent = 'Generating...';
+
+      try {
+        // Call Supabase Edge Function
+        const response = await fetch(`${SUPABASE_URL}/functions/v1/generate-event`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+          },
+          body: JSON.stringify({
+            event_name: eventName,
+            city: city,
+            event_date: date,
+            event_type: eventType
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('AI generation failed');
+        }
+
+        const data = await response.json();
+
+        // Populate the form with generated data
+        populateFormFromAI(data);
+
+        showAlert('success', 'Event details generated successfully! Review and save when ready.');
+
+        // Scroll to form
+        document.getElementById('eventForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      } catch (err) {
+        console.error('AI Error:', err);
+        showAlert('error', 'Failed to generate event details. Make sure the Edge Function is deployed.');
+      } finally {
+        // Hide progress
+        document.getElementById('aiProgress').classList.add('hidden');
+        document.getElementById('generateBtn').disabled = false;
+        document.getElementById('generateBtnText').textContent = 'Generate Event Details with AI';
+      }
+    }
+
+    function populateFormFromAI(data) {
+      // Populate all form fields
+      if (data.event_title) document.getElementById('title').value = data.event_title;
+      if (data.url_slug) document.getElementById('slug').value = data.url_slug;
+      if (data.event_date_time) document.getElementById('event_date').value = data.event_date_time;
+      if (data.end_date_time) document.getElementById('event_end_date').value = data.end_date_time;
+      if (data.event_type) document.getElementById('event_type').value = data.event_type;
+      if (data.price) document.getElementById('price').value = data.price;
+      if (data.venue_name) document.getElementById('venue_name').value = data.venue_name;
+      if (data.city) document.getElementById('city').value = data.city;
+      if (data.venue_address) document.getElementById('venue_address').value = data.venue_address;
+      if (data.location_area) document.getElementById('location').value = data.location_area;
+      if (data.capacity) document.getElementById('capacity').value = data.capacity;
+      if (data.image_url) document.getElementById('image_url').value = data.image_url;
+      if (data.short_description) document.getElementById('short_description').value = data.short_description;
+      if (data.full_description) document.getElementById('description').value = data.full_description;
     }
   </script>
 </body>
