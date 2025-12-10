@@ -1,7 +1,8 @@
 # Nodaluxe-Experiences
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dc0b4ea9-c3f0-43f3-94b2-6e8516ddf0ea/deploy-status)](https://app.netlify.com/projects/nodaluxe/deploys)
-[](627238e321d161652204ce15)
-[![License](<!-- Replace with your license badge -->)](c8cd8f3a2ac63c1c7cf6e2b9a074f724e8a19aea)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/JesuscoinsIII/Nodaluxe-Experiences/blob/main/LICENSE)
+
 
 ## Overview
 
