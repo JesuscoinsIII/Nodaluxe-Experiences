@@ -200,7 +200,7 @@ Phone: (Available upon request)
 Address: Texas, United States
 
 **Data Protection Officer:**
-Email: dpo@nodaluxe.com
+Email: ryan@nodaluxe.com
 
 ## Your Consent
 
