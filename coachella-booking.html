@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Coachella 2026 Transport Bundles — Nodaluxe Experiences</title>
+  <meta name="description" content="Book premium Coachella 2026 transport bundles. GA+Shuttle packages, VIP Sprinter vans, hotel packages, and luxury limo services for April 10-12 & 17-19, 2026." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#d4af37',
+              600: '#b8860b',
+              700: '#92710c',
+              800: '#78600d',
+              900: '#5c4a0e',
+            },
+            coachella: {
+              pink: '#FF006E',
+              purple: '#8338EC',
+              blue: '#3A86FF',
+              orange: '#FB5607',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gold-gradient {
+      background: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #d4af37 100%);
+    }
+    .coachella-gradient {
+      background: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%);
+    }
+    .text-gold {
+      color: #d4af37;
+    }
+    .bg-gold {
+      background-color: #d4af37;
+    }
+    .border-gold {
+      border-color: #d4af37;
+    }
+    .hover\:bg-gold-dark:hover {
+      background-color: #b8860b;
+    }
+    .package-card {
+      transition: all 0.3s ease;
+    }
+    .package-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    }
+    .package-card.selected {
+      border-color: #d4af37;
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-black text-white antialiased">
+  <!-- Header -->
+  <header class="bg-black border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-6">
+        <a href="/" class="text-2xl font-bold text-gold">Nodaluxe</a>
+        <nav class="hidden md:flex gap-6 text-sm text-gray-300">
+          <a href="/#spaces" class="hover:text-gold transition">Partner Venues</a>
+          <a href="/events.html" class="hover:text-gold transition">Events</a>
+          <a href="/sponsorships.html" class="hover:text-gold transition">Sponsorships</a>
+          <a href="/coachella-booking.html" class="text-gold">Coachella 2026</a>
+        </nav>
+      </div>
+      <div class="text-sm flex items-center gap-4">
+        <a href="tel:+14696698878" class="text-gray-300 hover:text-gold transition">469-669-8878</a>
+        <a href="/book-now.html" class="bg-gold text-black px-4 py-2 rounded font-semibold hover:bg-gold-dark transition">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1920&q=80"
+           alt="Coachella Festival" class="w-full h-full object-cover" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/60"></div>
+    <div class="relative max-w-6xl mx-auto px-6 py-20">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+        <span class="text-gold">Coachella 2026</span><br />
+        Transport Bundles
+      </h1>
+      <p class="mt-6 text-xl text-gray-300 max-w-2xl">
+        Premium transport packages for Coachella Valley Music & Arts Festival<br />
+        <span class="text-gold font-semibold">April 10-12 & 17-19, 2026</span> • Empire Polo Club, Indio, CA
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <span class="px-4 py-2 bg-coachella-pink/20 border border-coachella-pink text-coachella-pink rounded-full text-sm">Weekend 1: Apr 10-12</span>
+        <span class="px-4 py-2 bg-coachella-purple/20 border border-coachella-purple text-coachella-purple rounded-full text-sm">Weekend 2: Apr 17-19</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    
+    <!-- Package Selection Section -->
+    <section class="mb-16">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-bold">Choose Your <span class="text-gold">Transport Bundle</span></h2>
+        <p class="text-gray-400 mt-3">Select the perfect package for your Coachella experience</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        
+        <!-- GA + 3-Day Shuttle Bundle -->
+        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('ga-shuttle')">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gold">GA + Shuttle</h3>
+              <p class="text-sm text-gray-400">3-Day Bundle</p>
+            </div>
+            <input type="radio" name="package" value="ga-shuttle" class="mt-1 w-5 h-5 text-gold" />
+          </div>
+          <div class="mb-4">
+            <span class="text-3xl font-bold text-white">$729</span>
+            <span class="text-gray-400 text-sm">/person</span>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-300 mb-6">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>3-Day GA Festival Entry</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Unlimited Roundtrip Shuttles</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>20+ Pickup Locations</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>45-60 Min Travel Time</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Best for 1-4 People</span>
+            </li>
+          </ul>
+          <p class="text-xs text-gray-500">Ideal for budget-conscious groups</p>
+        </div>
+
+        <!-- Hotel + Shuttle Package -->
+        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('hotel-shuttle')">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gold">Hotel Package</h3>
+              <p class="text-sm text-gray-400">3-4 Nights + Shuttle</p>
+            </div>
+            <input type="radio" name="package" value="hotel-shuttle" class="mt-1 w-5 h-5 text-gold" />
+          </div>
+          <div class="mb-4">
+            <span class="text-3xl font-bold text-white">$1,800</span>
+            <span class="text-gray-400 text-sm">/person</span>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-300 mb-6">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>GA or VIP Festival Pass</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>3-4 Nights Local Resort</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Shuttle Passes Included</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Monday Checkout</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Best for 2-6 People</span>
+            </li>
+          </ul>
+          <p class="text-xs text-gray-500">All-inclusive comfort package</p>
+        </div>
+
+        <!-- VIP Sprinter Package -->
+        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('vip-sprinter')">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gold">VIP Sprinter</h3>
+              <p class="text-sm text-gray-400">Weekend Luxury</p>
+            </div>
+            <input type="radio" name="package" value="vip-sprinter" class="mt-1 w-5 h-5 text-gold" />
+          </div>
+          <div class="mb-4">
+            <span class="text-3xl font-bold text-white">$5,000</span>
+            <span class="text-gray-400 text-sm">/weekend</span>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-300 mb-6">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Mercedes Sprinter Limo Van</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>10-14 Passenger Capacity</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Leather Seating & Entertainment</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Unlimited Hotel-Venue Trips</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Professional Chauffeur</span>
+            </li>
+          </ul>
+          <p class="text-xs text-gray-500">Ultimate luxury experience</p>
+        </div>
+
+        <!-- LAX Shuttle Pass -->
+        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('lax-shuttle')">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gold">LAX Shuttle</h3>
+              <p class="text-sm text-gray-400">Airport Transfer</p>
+            </div>
+            <input type="radio" name="package" value="lax-shuttle" class="mt-1 w-5 h-5 text-gold" />
+          </div>
+          <div class="mb-4">
+            <span class="text-3xl font-bold text-white">$125</span>
+            <span class="text-gray-400 text-sm">/roundtrip</span>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-300 mb-6">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>LAX Pickup & Drop-off</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Thursday/Friday Arrival</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Monday Return</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Festival Shuttle Integration</span>
+            </li>
+          </ul>
+          <p class="text-xs text-gray-500">Perfect for out-of-town guests</p>
+        </div>
+
+        <!-- Premium Drop-Off -->
+        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('premium-dropoff')">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gold">Premium Drop-Off</h3>
+              <p class="text-sm text-gray-400">Black Car Service</p>
+            </div>
+            <input type="radio" name="package" value="premium-dropoff" class="mt-1 w-5 h-5 text-gold" />
+          </div>
+          <div class="mb-4">
+            <span class="text-3xl font-bold text-white">$799</span>
+            <span class="text-gray-400 text-sm">/vehicle</span>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-300 mb-6">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Luxury Limo/SUV Service</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Up to 10 Passengers</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>On-Site Drop-Off Zone</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Licensed Vehicle Required</span>
+            </li>
+          </ul>
+          <p class="text-xs text-gray-500">Eco-conscious alternative</p>
+        </div>
+
+        <!-- VIP Oasis Package -->
+        <div class="package-card bg-gradient-to-br from-gold/20 to-transparent border-2 border-gold rounded-xl p-6 cursor-pointer relative overflow-hidden" onclick="selectPackage('vip-oasis')">
+          <div class="absolute top-2 right-2">
+            <span class="px-3 py-1 bg-gold text-black text-xs font-bold rounded-full">FEATURED</span>
+          </div>
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gold">VIP Oasis</h3>
+              <p class="text-sm text-gray-400">Ultimate Package</p>
+            </div>
+            <input type="radio" name="package" value="vip-oasis" class="mt-1 w-5 h-5 text-gold" />
+          </div>
+          <div class="mb-4">
+            <span class="text-3xl font-bold text-white">$15,000</span>
+            <span class="text-gray-400 text-sm">/group of 10</span>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-300 mb-6">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>10 VIP Festival Tickets</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>12-Hour Sprinter Reservation</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Tokenized Parking Access</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Priority Venue Entry</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Concierge Service</span>
+            </li>
+          </ul>
+          <p class="text-xs text-gray-400">Limited availability - Modal Platinum exclusive</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="max-w-4xl mx-auto">
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 md:p-12">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-4xl font-bold">Complete Your <span class="text-gold">Booking</span></h2>
+          <p class="text-gray-400 mt-2">Fill in your details to reserve your Coachella transport bundle</p>
+        </div>
+
+        <form id="coachellaBookingForm" class="space-y-6">
+          <!-- Package Selection Display -->
+          <div id="selectedPackageDisplay" class="hidden bg-gold/10 border border-gold rounded-lg p-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-400">Selected Package:</p>
+                <p id="selectedPackageName" class="text-lg font-semibold text-gold"></p>
+              </div>
+              <p id="selectedPackagePrice" class="text-2xl font-bold text-white"></p>
+            </div>
+          </div>
+
+          <!-- Weekend Selection -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Festival Weekend *</label>
+            <select name="weekend" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none">
+              <option value="">Select weekend</option>
+              <option value="weekend-1">Weekend 1 (April 10-12, 2026)</option>
+              <option value="weekend-2">Weekend 2 (April 17-19, 2026)</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-2">Full Name *</label>
+              <input name="full_name" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="John Doe" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+              <input name="email" type="email" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="john@example.com" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-2">Phone *</label>
+              <input name="phone" type="tel" required pattern="[0-9]{10,}" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="5551234567" />
+              <small class="text-xs text-gray-500">Numbers only, 10+ digits</small>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-2">Number in Party *</label>
+              <input name="party_size" type="number" min="1" max="14" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="1-14" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-2">Pickup Location</label>
+              <input name="pickup_location" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="Hotel name or address" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-2">Special Requests</label>
+              <input name="special_requests" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="Dietary needs, accessibility, etc." />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Additional Notes</label>
+            <textarea name="additional_notes" rows="4" maxlength="250" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="Any other details we should know..."></textarea>
+            <small class="text-xs text-gray-500"><span id="noteCharCount">0</span>/250 characters</small>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <small class="text-xs text-gray-500">By submitting you agree to our <a href="/privacy-policy.html" class="text-gold hover:underline">Privacy Policy</a>.</small>
+            <button type="submit" class="bg-gold text-black px-8 py-3 rounded font-semibold hover:bg-gold-dark transition">Request Booking</button>
+          </div>
+
+          <div id="formMsg" class="hidden text-sm mt-2 text-center"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="mt-16 grid md:grid-cols-3 gap-8">
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+        <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-gold mb-2">Festival Dates</h3>
+        <p class="text-gray-300 text-sm">April 10-12 & 17-19, 2026</p>
+        <p class="text-gray-500 text-xs mt-1">Empire Polo Club, Indio, CA</p>
+      </div>
+
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+        <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-gold mb-2">Pricing</h3>
+        <p class="text-gray-300 text-sm">Packages from $125 - $15,000</p>
+        <p class="text-gray-500 text-xs mt-1">Flexible options for all budgets</p>
+      </div>
+
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+        <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-gold mb-2">Booking</h3>
+        <p class="text-gray-300 text-sm">Early bird pricing available</p>
+        <p class="text-gray-500 text-xs mt-1">Reserve now for best rates</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-gray-900 border-t border-gray-800 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="text-2xl font-bold text-gold">Nodaluxe</div>
+          <p class="text-gray-400 text-sm mt-2">Premium transportation & event experiences.</p>
+        </div>
+
+        <div>
+          <div class="font-semibold text-gold mb-4">Contact</div>
+          <div class="text-gray-400 text-sm space-y-2">
+            <div><a href="tel:+14696698878" class="hover:text-gold transition">469-669-8878</a></div>
+            <div><a href="mailto:info@nodaluxe.com" class="hover:text-gold transition">info@nodaluxe.com</a></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="font-semibold text-gold mb-4">Quick Links</div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li><a href="/" class="hover:text-gold transition">Home</a></li>
+            <li><a href="/#spaces" class="hover:text-gold transition">Partner Venues</a></li>
+            <li><a href="/events.html" class="hover:text-gold transition">Events</a></li>
+            <li><a href="/coachella-booking.html" class="hover:text-gold transition">Coachella 2026</a></li>
+            <li><a href="/book-now.html" class="hover:text-gold transition">Book Now</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="font-semibold text-gold mb-4">Follow Us</div>
+          <div class="flex gap-4">
+            <a href="https://x.com/NodaluXe" target="_blank" rel="noopener" class="text-gray-400 hover:text-gold transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://instagram.com/nodaluxe.experiences" target="_blank" rel="noopener" class="text-gray-400 hover:text-gold transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/jesuscoins/" target="_blank" rel="noopener" class="text-gray-400 hover:text-gold transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://t.me/+9S-brl3M-nEyNDU5" target="_blank" rel="noopener" class="text-gray-400 hover:text-gold transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 Nodaluxe Experiences. All rights reserved. Coachella is a trademark of Goldenvoice, LLC.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Supabase configuration
+    const SUPABASE_URL = 'https://fdezwoglwhbkhzhmnxxv.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZkZXp3b2dsd2hia2h6aG1ueHh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUxODYzMDksImV4cCI6MjA4MDc2MjMwOX0.JlOALehErZF_Ret4XokYWovch6K6fVvRiaj3DKtBLHs';
+
+    // Package data
+    const packages = {
+      'ga-shuttle': { name: 'GA + Shuttle Bundle', price: '$729' },
+      'hotel-shuttle': { name: 'Hotel Package', price: '$1,800' },
+      'vip-sprinter': { name: 'VIP Sprinter Weekend', price: '$5,000' },
+      'lax-shuttle': { name: 'LAX Shuttle Pass', price: '$125' },
+      'premium-dropoff': { name: 'Premium Drop-Off Service', price: '$799' },
+      'vip-oasis': { name: 'VIP Oasis Package', price: '$15,000' }
+    };
+
+    let selectedPackage = null;
+
+    // Package selection
+    function selectPackage(packageId) {
+      // Update selected state
+      selectedPackage = packageId;
+      
+      // Update UI
+      document.querySelectorAll('.package-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      event.currentTarget.classList.add('selected');
+      
+      // Update radio button
+      document.querySelectorAll('input[name="package"]').forEach(radio => {
+        radio.checked = radio.value === packageId;
+      });
+      
+      // Update display
+      const packageInfo = packages[packageId];
+      document.getElementById('selectedPackageDisplay').classList.remove('hidden');
+      document.getElementById('selectedPackageName').textContent = packageInfo.name;
+      document.getElementById('selectedPackagePrice').textContent = packageInfo.price;
+      
+      // Scroll to form
+      document.getElementById('coachellaBookingForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Character counter
+    const additionalNotes = document.querySelector('textarea[name="additional_notes"]');
+    const noteCharCount = document.getElementById('noteCharCount');
+    if (additionalNotes) {
+      additionalNotes.addEventListener('input', () => {
+        noteCharCount.textContent = additionalNotes.value.length;
+      });
+    }
+
+    // Phone number validation
+    const phoneInput = document.querySelector('input[name="phone"]');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+      });
+    }
+
+    // Form submission
+    const coachellaBookingForm = document.getElementById('coachellaBookingForm');
+    const formMsg = document.getElementById('formMsg');
+
+    coachellaBookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      if (!selectedPackage) {
+        formMsg.classList.remove('hidden');
+        formMsg.textContent = 'Please select a package first';
+        formMsg.className = 'text-sm mt-2 text-center text-red-400';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      
+      formMsg.classList.remove('hidden');
+      formMsg.textContent = 'Sending...';
+      formMsg.className = 'text-sm mt-2 text-center text-gold';
+
+      const formData = new FormData(coachellaBookingForm);
+      const packageInfo = packages[selectedPackage];
+      
+      const data = {
+        full_name: formData.get('full_name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        subject: `Coachella 2026 Booking: ${packageInfo.name}`,
+        message: `
+Package: ${packageInfo.name} (${packageInfo.price})
+Festival Weekend: ${formData.get('weekend')}
+Party Size: ${formData.get('party_size')}
+Pickup Location: ${formData.get('pickup_location') || 'Not specified'}
+Special Requests: ${formData.get('special_requests') || 'None'}
+Additional Notes: ${formData.get('additional_notes') || 'None'}
+        `.trim()
+      };
+
+      try {
+        const response = await fetch(`${SUPABASE_URL}/functions/v1/send-contact-email`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          formMsg.textContent = 'Booking request submitted! We\'ll contact you within 24 hours.';
+          formMsg.className = 'text-sm mt-2 text-center text-green-400';
+          coachellaBookingForm.reset();
+          noteCharCount.textContent = '0';
+          document.getElementById('selectedPackageDisplay').classList.add('hidden');
+          document.querySelectorAll('.package-card').forEach(card => {
+            card.classList.remove('selected');
+          });
+          selectedPackage = null;
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        console.error('Submission error:', err);
+        formMsg.textContent = 'Error submitting. Please call 469-669-8878 or email info@nodaluxe.com';
+        formMsg.className = 'text-sm mt-2 text-center text-red-400';
+      }
+    });
+  </script>
+</body>
+</html>
