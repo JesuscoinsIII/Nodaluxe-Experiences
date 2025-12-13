@@ -3,7 +3,10 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
 
-// Use Stripe test publishable key
+// NOTE: This is a test mode publishable key. In production, this should be:
+// - Stored in environment variables (e.g., import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY)
+// - Replaced with a production key for live payments
+// Test publishable key (safe to expose in client-side code)
 const stripePromise = loadStripe('pk_test_51QSWKjFkiYAZ0jz8G1K3hYGvN8VvXzxjdY7pFvH5xPzT9pEfQH7J2VqQKRZSLz0z9YJD5xvN8KtQH9pWJQ8xV7jD00aBcDeFgh');
 
 function App() {

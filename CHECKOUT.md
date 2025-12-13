@@ -10,6 +10,46 @@ This is the React-based checkout page for Nodaluxe Experiences, integrated with 
 - Responsive design matching the Nodaluxe brand
 - Payment success confirmation page
 
+## Important Notes
+
+### Test Mode Implementation
+
+This is a **test mode implementation** for demonstration purposes. It currently:
+- Uses Stripe Elements UI for payment form
+- Validates card input using Stripe's client-side validation
+- Simulates payment success for testing purposes
+
+### Production Requirements
+
+To make this production-ready, you need to:
+
+1. **Create a Backend API** to:
+   - Create Stripe Payment Intents
+   - Return client secrets to the frontend
+   - Handle webhooks for payment confirmation
+   - Store booking and payment records in a database
+
+2. **Update the Frontend** to:
+   - Fetch the client secret from your backend
+   - Pass the client secret to the Elements component via options
+   - Call `stripe.confirmPayment()` with the client secret
+   - Handle payment confirmation responses
+
+3. **Environment Variables**:
+   - Move the Stripe publishable key to environment variables
+   - Use different keys for test and production environments
+
+Example backend endpoint needed:
+```javascript
+// POST /api/create-payment-intent
+{
+  amount: 15000, // in cents
+  currency: 'usd',
+  booking_details: {...}
+}
+// Response: { clientSecret: 'pi_xxx_secret_xxx' }
+```
+
 ## Development
 
 ### Setup

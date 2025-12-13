@@ -19,11 +19,14 @@ function CheckoutForm({ bookingDetails }) {
     setErrorMessage('');
 
     try {
-      // In a real application, you would create a payment intent on your server
-      // For now, we'll simulate the payment process
+      // IMPORTANT: This is a simplified test mode implementation.
+      // In production, you need to:
+      // 1. Create a payment intent on your backend server
+      // 2. Return the client secret to the frontend
+      // 3. Pass the client secret to the Elements component
+      // 4. Call stripe.confirmPayment() with the client secret
       
-      // Note: This is a simplified test mode implementation
-      // In production, you need a backend to create payment intents
+      // For test/demo purposes, we validate the form
       const { error } = await elements.submit();
       
       if (error) {
@@ -33,6 +36,7 @@ function CheckoutForm({ bookingDetails }) {
       }
 
       // Simulate successful payment in test mode
+      // In production, this should be replaced with actual payment confirmation
       setTimeout(() => {
         setPaymentSuccess(true);
         setIsProcessing(false);
