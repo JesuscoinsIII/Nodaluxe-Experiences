@@ -113,7 +113,7 @@ This is a **Twilio User ID** (starts with `US`), NOT the **Account SID** needed 
    npx supabase functions deploy send-contact-email
    ```
 
-**Detailed guide:** See [RSVP_EMAIL_SETUP.md](RSVP_EMAIL_SETUP.md)
+**Detailed guide:** See [RSVP_EMAIL_SETUP.md](RSVP_EMAIL_SETUP.md).
 
 ---
 
@@ -150,8 +150,8 @@ This is a **Twilio User ID** (starts with `US`), NOT the **Account SID** needed 
    - Copy the Channel ID (found in channel details)
 
 3. **Create Slack notification function (optional):**
-   - Would you like a custom Edge Function for this?
-   - See [SLACK_INTEGRATION.md](SLACK_INTEGRATION.md) for full details
+   - Can be implemented as a custom Edge Function
+   - See [SLACK_INTEGRATION.md](SLACK_INTEGRATION.md) for full details and implementation options
 
 ---
 
@@ -217,7 +217,6 @@ All your services connect through Supabase. Here's what to configure:
 - `RESEND_API_KEY` → For email notifications
 - `SLACK_API_TOKEN` → For Slack notifications (optional)
 - `SLACK_REFRESH_TOKEN` → For Slack token refresh (optional)
-- `ANTHROPIC_API_KEY` → For AI event generation (optional)
 - https://supabase.com/dashboard/project/fdezwoglwhbkhzhmnxxv/settings/functions
 
 ---
