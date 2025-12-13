@@ -13,8 +13,28 @@ serve(async (req) => {
     return new Response("ok", { headers: corsHeaders });
   }
 
+  // Determine dynamic email based on service type
+  const getDynamicEmail = (serviceType: string) => {
+    const normalizedType = serviceType?.toLowerCase();
+    
+    // Events go to dedicated events email
+    if (normalizedType === 'event' || normalizedType === 'event transportation') {
+      return 'events@nodaluxe.com';
+    }
+    
+    // Transportation services go to ryan
+    if (['airport', 'airport transfer', 'hourly', 'hourly rental', 'point-to-point'].includes(normalizedType)) {
+      return 'ryan@nodaluxe.com';
+    }
+    
+    // Default to general info email
+    return 'info@nodaluxe.com';
+  };
+
   try {
     const booking = await req.json();
+
+    const dynamicEmail = getDynamicEmail(booking.service_type);
 
     // Internal email to info@nodaluxe.com
     const internalEmailBody = `
@@ -44,12 +64,6 @@ Additional Details: ${booking.additional_details || "None"}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Next Steps
-
-Prepare a quote and follow up with the client via email or text.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 This request was submitted on ${new Date().toLocaleString("en-US", { timeZone: "America/Chicago" })} CT.
 
 — Nodaluxe Website
@@ -70,9 +84,15 @@ If anything changes in the meantime, you can reply directly to this email.
 
 We look forward to taking great care of you.
 
-— Nodaluxe Transportation Team
-ryan@nodaluxe.com
-469-669-8878
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This request was submitted on ${new Date().toLocaleString("en-US", { timeZone: "America/Chicago" })} CT.
+
+We are thrilled to have you onboard while we aim to provide the most rare and unique experience as we embark on this journey together.
+
+Typical response time is within 24-48 hours, but you can always pick up the phone and call us at (469) 669-8878 or email us at ${dynamicEmail}.
+
+— Nodaluxe Experiences
 `;
 
     // Send internal email to info@nodaluxe.com
