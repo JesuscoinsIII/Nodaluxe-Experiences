@@ -122,7 +122,7 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         
         <!-- GA + 3-Day Shuttle Bundle -->
-        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('ga-shuttle')">
+        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('ga-shuttle', event)">
           <div class="flex items-start justify-between mb-4">
             <div>
               <h3 class="text-xl font-bold text-gold">GA + Shuttle</h3>
@@ -160,7 +160,7 @@
         </div>
 
         <!-- Hotel + Shuttle Package -->
-        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('hotel-shuttle')">
+        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('hotel-shuttle', event)">
           <div class="flex items-start justify-between mb-4">
             <div>
               <h3 class="text-xl font-bold text-gold">Hotel Package</h3>
@@ -198,7 +198,7 @@
         </div>
 
         <!-- VIP Sprinter Package -->
-        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('vip-sprinter')">
+        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('vip-sprinter', event)">
           <div class="flex items-start justify-between mb-4">
             <div>
               <h3 class="text-xl font-bold text-gold">VIP Sprinter</h3>
@@ -236,7 +236,7 @@
         </div>
 
         <!-- LAX Shuttle Pass -->
-        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('lax-shuttle')">
+        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('lax-shuttle', event)">
           <div class="flex items-start justify-between mb-4">
             <div>
               <h3 class="text-xl font-bold text-gold">LAX Shuttle</h3>
@@ -270,7 +270,7 @@
         </div>
 
         <!-- Premium Drop-Off -->
-        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('premium-dropoff')">
+        <div class="package-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectPackage('premium-dropoff', event)">
           <div class="flex items-start justify-between mb-4">
             <div>
               <h3 class="text-xl font-bold text-gold">Premium Drop-Off</h3>
@@ -304,7 +304,7 @@
         </div>
 
         <!-- VIP Oasis Package -->
-        <div class="package-card bg-gradient-to-br from-gold/20 to-transparent border-2 border-gold rounded-xl p-6 cursor-pointer relative overflow-hidden" onclick="selectPackage('vip-oasis')">
+        <div class="package-card bg-gradient-to-br from-gold/20 to-transparent border-2 border-gold rounded-xl p-6 cursor-pointer relative overflow-hidden" onclick="selectPackage('vip-oasis', event)">
           <div class="absolute top-2 right-2">
             <span class="px-3 py-1 bg-gold text-black text-xs font-bold rounded-full">FEATURED</span>
           </div>
@@ -341,7 +341,7 @@
               <span>Concierge Service</span>
             </li>
           </ul>
-          <p class="text-xs text-gray-400">Limited availability - Modal Platinum exclusive</p>
+          <p class="text-xs text-gray-400">Limited availability - Nodaluxe Platinum exclusive</p>
         </div>
 
       </div>
@@ -536,7 +536,7 @@
     let selectedPackage = null;
 
     // Package selection
-    function selectPackage(packageId) {
+    function selectPackage(packageId, event) {
       // Update selected state
       selectedPackage = packageId;
       
@@ -544,7 +544,9 @@
       document.querySelectorAll('.package-card').forEach(card => {
         card.classList.remove('selected');
       });
-      event.currentTarget.classList.add('selected');
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add('selected');
+      }
       
       // Update radio button
       document.querySelectorAll('input[name="package"]').forEach(radio => {
