@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Payment Failed — Nodaluxe Experiences</title>
+  <meta name="description" content="There was an issue processing your payment." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              500: '#d4af37',
+              600: '#b8860b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .text-gold { color: #d4af37; }
+    .bg-gold { background-color: #d4af37; }
+    .border-gold { border-color: #d4af37; }
+    .hover\:bg-gold-dark:hover { background-color: #b8860b; }
+  </style>
+</head>
+<body class="bg-black text-white antialiased">
+  <!-- Header -->
+  <header class="bg-black border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-6">
+        <a href="/" class="text-2xl font-bold text-gold">Nodaluxe</a>
+      </div>
+      <div class="text-sm flex items-center gap-4">
+        <a href="tel:+14696698878" class="text-gray-300 hover:text-gold transition">469-669-8878</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="min-h-screen p-6 bg-gray-950 flex items-center justify-center">
+    <div class="max-w-2xl w-full">
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 md:p-12 text-center">
+        <!-- Error Icon -->
+        <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-red-900/20 border-2 border-red-500 flex items-center justify-center">
+          <svg class="w-12 h-12 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </div>
+
+        <h1 class="text-4xl font-bold mb-4">
+          Payment <span class="text-red-500">Failed</span>
+        </h1>
+        
+        <p class="text-gray-400 text-lg mb-8">
+          We were unable to process your payment. Don't worry—no charges were made to your account.
+        </p>
+
+        <!-- Error Details -->
+        <div id="error-details" class="bg-red-900/20 border border-red-800 rounded-lg p-6 mb-8 text-left hidden">
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+            </svg>
+            <div>
+              <div class="font-semibold text-red-400 mb-1">Error Details:</div>
+              <div id="error-message" class="text-sm text-gray-300">Unknown error occurred</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Common Reasons -->
+        <div class="bg-black border border-gray-800 rounded-lg p-6 mb-8 text-left">
+          <h2 class="text-xl font-semibold text-gold mb-4">Common Reasons for Payment Failure</h2>
+          <ul class="space-y-3 text-sm text-gray-300">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+              </svg>
+              <span><strong>Insufficient funds:</strong> Check that your account has enough balance</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+              </svg>
+              <span><strong>Incorrect card details:</strong> Verify your card number, expiration date, and CVV</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+              </svg>
+              <span><strong>Card declined by bank:</strong> Your bank may have blocked the transaction for security</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+              </svg>
+              <span><strong>Expired card:</strong> Check your card hasn't expired</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+              </svg>
+              <span><strong>Billing address mismatch:</strong> Ensure your billing address matches your card</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- What to Do Next -->
+        <div class="bg-black border border-gray-800 rounded-lg p-6 mb-8 text-left">
+          <h2 class="text-xl font-semibold text-gold mb-4">What to Do Next</h2>
+          <ol class="space-y-3 text-sm text-gray-300 list-decimal list-inside">
+            <li><strong>Try a different payment method</strong> - Use another card or payment option</li>
+            <li><strong>Contact your bank</strong> - They can provide specific information about why the payment was declined</li>
+            <li><strong>Verify your details</strong> - Double-check all card information before trying again</li>
+            <li><strong>Call us for assistance</strong> - We can help process your payment over the phone</li>
+          </ol>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button onclick="history.back()" class="bg-gold text-black px-8 py-3 rounded-lg font-semibold hover:bg-gold-dark transition">
+            Try Again
+          </button>
+          <a href="/" class="bg-gray-800 border border-gray-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-700 transition">
+            Return to Home
+          </a>
+        </div>
+
+        <!-- Alternative Payment Methods -->
+        <div class="mt-8 pt-8 border-t border-gray-800">
+          <h3 class="text-lg font-semibold text-gold mb-4">Alternative Payment Options</h3>
+          <p class="text-sm text-gray-400 mb-4">
+            If you continue to experience issues with online payment, you can:
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center text-sm">
+            <div class="bg-gray-800 border border-gray-700 rounded-lg p-4">
+              <div class="font-semibold text-gold mb-2">📞 Call to Book</div>
+              <a href="tel:+14696698878" class="text-gray-300 hover:text-gold transition">469-669-8878</a>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-lg p-4">
+              <div class="font-semibold text-gold mb-2">✉️ Email Us</div>
+              <a href="mailto:info@nodaluxe.com" class="text-gray-300 hover:text-gold transition">info@nodaluxe.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Support -->
+        <div class="mt-8 pt-8 border-t border-gray-800">
+          <p class="text-sm text-gray-400">
+            Need immediate assistance? Contact us at <a href="tel:+14696698878" class="text-gold hover:underline">469-669-8878</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-900 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-8">
+      <div class="text-center text-gray-500 text-sm">
+        <p>&copy; 2024 Nodaluxe Experiences. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Get error details from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const errorMessage = urlParams.get('error') || urlParams.get('error_message');
+    const paymentIntentId = urlParams.get('payment_intent');
+
+    // Display error message if available
+    if (errorMessage) {
+      const errorDetails = document.getElementById('error-details');
+      const errorMessageEl = document.getElementById('error-message');
+      
+      errorDetails.classList.remove('hidden');
+      errorMessageEl.textContent = decodeURIComponent(errorMessage);
+    }
+
+    // Log payment intent for debugging
+    if (paymentIntentId) {
+      console.log('Failed payment intent:', paymentIntentId);
+    }
+  </script>
+</body>
+</html>

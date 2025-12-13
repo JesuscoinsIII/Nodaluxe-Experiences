@@ -36,3 +36,6 @@ Thumbs.db
 # Local scripts (if contain sensitive data)
 trello-sync.js
 TWILIO_CONFIG_NOW.md
+
+# Local config overrides
+config.local.js

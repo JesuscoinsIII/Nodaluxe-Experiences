@@ -180,7 +180,7 @@
 
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
           <small class="text-xs text-gray-500">By submitting you agree to our <a href="#terms" class="text-gold hover:underline">Terms</a> and <a href="#privacy" class="text-gold hover:underline">Privacy Policy</a>.</small>
-          <button type="submit" class="bg-gold text-black px-8 py-3 rounded font-semibold hover:bg-gold-dark transition">Submit Request</button>
+          <button type="submit" class="bg-gold text-black px-8 py-3 rounded font-semibold hover:bg-gold-dark transition">Continue to Payment</button>
         </div>
 
         <div id="formMsg" class="hidden text-sm mt-2 text-center"></div>
@@ -334,10 +334,8 @@
 
     transportForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      formMsg.classList.remove('hidden');
-      formMsg.textContent = 'Sending...';
-      formMsg.className = 'text-sm mt-2 text-center text-gold';
 
+      // Collect form data
       const formData = new FormData(transportForm);
       const data = {
         full_name: formData.get('full_name'),
@@ -351,30 +349,11 @@
         additional_details: formData.get('additional_details') || 'None'
       };
 
-      try {
-        const response = await fetch(`${SUPABASE_URL}/functions/v1/send-transport-booking`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-          },
-          body: JSON.stringify(data)
-        });
+      // Store booking data in sessionStorage
+      sessionStorage.setItem('bookingData', JSON.stringify(data));
 
-        if (response.ok) {
-          formMsg.textContent = 'Request submitted! Check your email for confirmation.';
-          formMsg.className = 'text-sm mt-2 text-center text-green-400';
-          transportForm.reset();
-          charCount.textContent = '0';
-        } else {
-          formMsg.textContent = 'Error. Please email info@nodaluxe.com or call 469-669-8878';
-          formMsg.className = 'text-sm mt-2 text-center text-red-400';
-        }
-      } catch (err) {
-        console.error('Submission error:', err);
-        formMsg.textContent = 'Error. Please email info@nodaluxe.com or call 469-669-8878';
-        formMsg.className = 'text-sm mt-2 text-center text-red-400';
-      }
+      // Redirect to checkout page
+      window.location.href = '/checkout.html';
     });
   </script>
 </body>

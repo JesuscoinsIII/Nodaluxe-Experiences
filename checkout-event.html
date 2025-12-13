@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Event Checkout — Nodaluxe Experiences</title>
+  <meta name="description" content="Complete your event RSVP with secure payment." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              500: '#d4af37',
+              600: '#b8860b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .text-gold { color: #d4af37; }
+    .bg-gold { background-color: #d4af37; }
+    .border-gold { border-color: #d4af37; }
+    .hover\:bg-gold-dark:hover { background-color: #b8860b; }
+    
+    .spinner {
+      border: 3px solid rgba(212, 175, 55, 0.3);
+      border-radius: 50%;
+      border-top-color: #d4af37;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-black text-white antialiased">
+  <!-- Header -->
+  <header class="bg-black border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-6">
+        <a href="/" class="text-2xl font-bold text-gold">Nodaluxe</a>
+        <nav class="hidden md:flex gap-6 text-sm text-gray-300">
+          <a href="/events.html" class="hover:text-gold transition">Events</a>
+          <a href="/book-now.html" class="hover:text-gold transition">Book Transportation</a>
+        </nav>
+      </div>
+      <div class="text-sm flex items-center gap-4">
+        <a href="tel:+14696698878" class="text-gray-300 hover:text-gold transition">469-669-8878</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="min-h-screen p-6 bg-gray-950">
+    <div class="max-w-6xl mx-auto py-8">
+      <!-- Progress Steps -->
+      <div class="mb-8">
+        <div class="flex items-center justify-center space-x-4">
+          <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-gold text-black flex items-center justify-center font-bold">✓</div>
+            <span class="ml-2 text-sm text-gray-400">Event Selection</span>
+          </div>
+          <div class="w-16 h-0.5 bg-gold"></div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-gold text-black flex items-center justify-center font-bold">2</div>
+            <span class="ml-2 text-sm text-gold">Payment</span>
+          </div>
+          <div class="w-16 h-0.5 bg-gray-700"></div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-gray-700 text-gray-400 flex items-center justify-center font-bold">3</div>
+            <span class="ml-2 text-sm text-gray-400">Confirmation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8">
+            <div class="mb-6">
+              <h1 class="text-3xl font-bold">Event <span class="text-gold">Checkout</span></h1>
+              <p class="text-gray-400 mt-2">Complete your event registration</p>
+            </div>
+
+            <!-- Attendee Information Form -->
+            <div id="customer-info-section" class="mb-8">
+              <h2 class="text-xl font-semibold mb-4 text-gold">Attendee Information</h2>
+              <form id="checkoutForm" class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Full Name *</label>
+                    <input type="text" id="full_name" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+                    <input type="email" id="email" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" />
+                  </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Phone Number *</label>
+                    <input type="tel" id="phone" required pattern="[0-9]{10,}" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Number of Tickets *</label>
+                    <input type="number" id="num_tickets" min="1" max="10" value="1" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-300 mb-2">Promo Code (Optional)</label>
+                  <div class="flex gap-2">
+                    <input type="text" id="promo_code" class="flex-1 bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="Enter promo code" />
+                    <button type="button" id="apply-promo" class="px-6 py-3 bg-gray-800 border border-gray-700 rounded hover:bg-gray-700 transition">Apply</button>
+                  </div>
+                  <p id="promo-message" class="text-sm mt-2 hidden"></p>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-300 mb-2">Special Requests (Optional)</label>
+                  <textarea id="notes" rows="3" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="Dietary restrictions, accessibility needs, etc."></textarea>
+                </div>
+              </form>
+            </div>
+
+            <!-- Payment Section -->
+            <div id="payment-section" class="hidden">
+              <h2 class="text-xl font-semibold mb-4 text-gold">Payment Information</h2>
+              
+              <div class="flex items-center gap-4 mb-6 text-sm text-gray-400">
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                  <span>Secure Checkout</span>
+                </div>
+                <span>🔒 PCI Compliant</span>
+                <span>Powered by Stripe</span>
+              </div>
+
+              <div id="payment-element"></div>
+              <div id="payment-message" class="hidden mt-4 p-4 rounded"></div>
+
+              <button id="submit-payment" class="w-full mt-6 bg-gold text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gold-dark transition disabled:opacity-50">
+                <span id="button-text">Confirm & Pay</span>
+                <div id="button-spinner" class="hidden spinner mx-auto"></div>
+              </button>
+            </div>
+
+            <button id="continue-to-payment" class="w-full bg-gold text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gold-dark transition">
+              Continue to Payment
+            </button>
+          </div>
+        </div>
+
+        <!-- Order Summary Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 sticky top-6">
+            <h2 class="text-xl font-semibold mb-4 text-gold">Event Details</h2>
+            
+            <div id="event-summary" class="space-y-4">
+              <!-- Summary populated by JavaScript -->
+            </div>
+
+            <div class="border-t border-gray-700 mt-6 pt-4 space-y-2">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-400">Subtotal:</span>
+                <span id="subtotal-amount">$0.00</span>
+              </div>
+              <div id="discount-row" class="hidden flex justify-between text-sm text-green-400">
+                <span>Discount:</span>
+                <span id="discount-amount">-$0.00</span>
+              </div>
+              <div class="flex justify-between items-center text-lg font-bold pt-2 border-t border-gray-800">
+                <span>Total:</span>
+                <span class="text-gold" id="total-amount">$0.00</span>
+              </div>
+            </div>
+
+            <div class="mt-6 p-4 bg-black rounded border border-gray-800">
+              <p class="text-xs text-gray-400 text-center">
+                Secure payment processing. Your ticket will be emailed after payment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-900 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-8">
+      <div class="text-center text-gray-500 text-sm">
+        <p>&copy; 2024 Nodaluxe Experiences. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Get event data from URL or sessionStorage
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventData = {
+      id: urlParams.get('event_id') || sessionStorage.getItem('eventId'),
+      title: urlParams.get('title') || sessionStorage.getItem('eventTitle') || 'Event',
+      date: urlParams.get('date') || sessionStorage.getItem('eventDate'),
+      location: urlParams.get('location') || sessionStorage.getItem('eventLocation'),
+      price: parseFloat(urlParams.get('price') || sessionStorage.getItem('eventPrice') || '50')
+    };
+
+    let currentDiscount = 0;
+    let discountCode = '';
+
+    // Update pricing
+    function updatePricing() {
+      const numTickets = parseInt(document.getElementById('num_tickets').value) || 1;
+      const subtotal = eventData.price * numTickets;
+      const total = subtotal - currentDiscount;
+
+      document.getElementById('subtotal-amount').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('total-amount').textContent = `$${total.toFixed(2)}`;
+
+      if (currentDiscount > 0) {
+        document.getElementById('discount-row').classList.remove('hidden');
+        document.getElementById('discount-amount').textContent = `-$${currentDiscount.toFixed(2)}`;
+      } else {
+        document.getElementById('discount-row').classList.add('hidden');
+      }
+    }
+
+    // Display event summary
+    document.getElementById('event-summary').innerHTML = `
+      <div>
+        <h3 class="font-bold text-lg mb-2">${eventData.title}</h3>
+        <div class="text-sm text-gray-400 space-y-1">
+          ${eventData.date ? `<p>📅 ${new Date(eventData.date).toLocaleDateString()}</p>` : ''}
+          ${eventData.location ? `<p>📍 ${eventData.location}</p>` : ''}
+          <p class="text-gold font-semibold mt-3">$${eventData.price.toFixed(2)} per ticket</p>
+        </div>
+      </div>
+    `;
+
+    updatePricing();
+
+    // Update pricing when ticket count changes
+    document.getElementById('num_tickets').addEventListener('input', updatePricing);
+
+    // Apply promo code
+    document.getElementById('apply-promo').addEventListener('click', () => {
+      const code = document.getElementById('promo_code').value.trim().toUpperCase();
+      const message = document.getElementById('promo-message');
+
+      // Simple promo code logic (in production, validate server-side)
+      const promoCodes = {
+        'SAVE10': 0.10,
+        'WELCOME': 0.15,
+        'VIP20': 0.20
+      };
+
+      if (promoCodes[code]) {
+        const numTickets = parseInt(document.getElementById('num_tickets').value) || 1;
+        const subtotal = eventData.price * numTickets;
+        currentDiscount = subtotal * promoCodes[code];
+        discountCode = code;
+        
+        message.textContent = `✓ Promo code applied! ${(promoCodes[code] * 100)}% off`;
+        message.classList.remove('hidden', 'text-red-400');
+        message.classList.add('text-green-400');
+        updatePricing();
+      } else if (code) {
+        message.textContent = '✗ Invalid promo code';
+        message.classList.remove('hidden', 'text-green-400');
+        message.classList.add('text-red-400');
+        currentDiscount = 0;
+        discountCode = '';
+        updatePricing();
+      }
+    });
+
+    // Initialize Stripe
+    // IMPORTANT: Replace with your actual Stripe publishable key
+    // See STRIPE_SETUP.md for instructions
+    const STRIPE_KEY = 'pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE';
+    
+    if (STRIPE_KEY === 'pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE') {
+      console.error('⚠️ Stripe publishable key not configured!');
+    }
+    
+    const stripe = Stripe(STRIPE_KEY);
+    let elements;
+    let paymentIntentId;
+
+    document.getElementById('continue-to-payment').addEventListener('click', async () => {
+      const form = document.getElementById('checkoutForm');
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      document.getElementById('continue-to-payment').disabled = true;
+      document.getElementById('continue-to-payment').textContent = 'Loading...';
+
+      const numTickets = parseInt(document.getElementById('num_tickets').value) || 1;
+      const subtotal = eventData.price * numTickets;
+      const total = subtotal - currentDiscount;
+
+      const bookingData = {
+        booking_type: 'event',
+        event_id: eventData.id,
+        event_title: eventData.title,
+        full_name: document.getElementById('full_name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        num_tickets: numTickets,
+        promo_code: discountCode,
+        notes: document.getElementById('notes').value,
+        ticket_price: eventData.price,
+        discount: currentDiscount
+      };
+
+      try {
+        const response = await fetch('/.netlify/functions/create-payment-intent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            amount: Math.round(total * 100),
+            currency: 'usd',
+            bookingData
+          })
+        });
+
+        const { clientSecret, paymentIntentId: piId } = await response.json();
+        paymentIntentId = piId;
+
+        elements = stripe.elements({ clientSecret });
+        const paymentElement = elements.create('payment');
+        paymentElement.mount('#payment-element');
+
+        document.getElementById('customer-info-section').classList.add('hidden');
+        document.getElementById('continue-to-payment').classList.add('hidden');
+        document.getElementById('payment-section').classList.remove('hidden');
+
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to initialize payment. Please try again.');
+        document.getElementById('continue-to-payment').disabled = false;
+        document.getElementById('continue-to-payment').textContent = 'Continue to Payment';
+      }
+    });
+
+    document.getElementById('submit-payment').addEventListener('click', async (e) => {
+      e.preventDefault();
+      
+      const submitButton = document.getElementById('submit-payment');
+      const buttonText = document.getElementById('button-text');
+      const buttonSpinner = document.getElementById('button-spinner');
+      
+      submitButton.disabled = true;
+      buttonText.classList.add('hidden');
+      buttonSpinner.classList.remove('hidden');
+
+      try {
+        const { error } = await stripe.confirmPayment({
+          elements,
+          confirmParams: {
+            return_url: `${window.location.origin}/checkout-success.html?payment_intent=${paymentIntentId}`
+          }
+        });
+
+        if (error) {
+          const messageDiv = document.getElementById('payment-message');
+          messageDiv.textContent = error.message;
+          messageDiv.classList.remove('hidden');
+          messageDiv.classList.add('bg-red-900', 'text-red-200');
+          
+          submitButton.disabled = false;
+          buttonText.classList.remove('hidden');
+          buttonSpinner.classList.add('hidden');
+        }
+      } catch (err) {
+        console.error('Payment error:', err);
+        submitButton.disabled = false;
+        buttonText.classList.remove('hidden');
+        buttonSpinner.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
