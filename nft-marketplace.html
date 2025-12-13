@@ -471,8 +471,12 @@
       const collectionName = document.getElementById('notification-collection-name').textContent;
 
       // Simulate API call - in production, this would save to database
+      // const email = formData.get('email');
+      // const name = formData.get('name');
+      // await saveNotificationRequest({ email, name, collection: collectionName });
+      
       setTimeout(() => {
-        msgEl.textContent = '✓ You\'re on the list! We\'ll notify you when this NFT drops.';
+        msgEl.textContent = '✓ You're on the list! We'll notify you when this NFT drops.';
         msgEl.className = 'text-center text-sm mt-4 text-green-400';
         setTimeout(() => {
           closeNotificationModal();
