@@ -366,14 +366,14 @@
 
           <!-- Collapsible RSVP Form -->
           <div id="rsvp-${event.id}" class="hidden border-t border-gray-800 p-6 bg-black">
-            <h4 class="text-sm font-semibold text-gold mb-3">RSVP for This Event</h4>
-            <form class="event-rsvp-form space-y-3" data-event-id="${event.id}" data-event-title="${event.title}">
+            <h4 class="text-sm font-semibold text-gold mb-3">${price > 0 ? 'Book Tickets' : 'RSVP for This Event'}</h4>
+            <form class="event-rsvp-form space-y-3" data-event-id="${event.id}" data-event-title="${event.title}" data-event-price="${price}" data-event-date="${event.event_date}" data-event-location="${event.venue_name || event.location}">
               <input type="text" name="name" placeholder="Your Name *" required class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-sm text-white focus:border-gold focus:outline-none" />
               <input type="email" name="email" placeholder="Email *" required class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-sm text-white focus:border-gold focus:outline-none" />
               <input type="tel" name="phone" placeholder="Phone" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-sm text-white focus:border-gold focus:outline-none" />
-              <input type="number" name="guests" placeholder="Number of Guests" min="1" value="1" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-sm text-white focus:border-gold focus:outline-none" />
+              <input type="number" name="guests" placeholder="Number of Tickets" min="1" value="1" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-sm text-white focus:border-gold focus:outline-none" />
               <textarea name="message" placeholder="Additional message or questions..." rows="3" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-sm text-white focus:border-gold focus:outline-none"></textarea>
-              <button type="submit" class="w-full bg-gold text-black px-4 py-2 rounded text-sm font-semibold hover:bg-gold-dark transition">Submit RSVP</button>
+              <button type="submit" class="w-full bg-gold text-black px-4 py-2 rounded text-sm font-semibold hover:bg-gold-dark transition">${price > 0 ? 'Continue to Payment' : 'Submit RSVP'}</button>
               <div class="rsvp-msg hidden text-xs text-center mt-2"></div>
             </form>
           </div>
@@ -390,13 +390,32 @@
       e.preventDefault();
       const form = e.target;
       const msgEl = form.querySelector('.rsvp-msg');
-      msgEl.classList.remove('hidden');
-      msgEl.textContent = 'Sending...';
-      msgEl.className = 'rsvp-msg text-xs text-center mt-2 text-gold';
-
+      
       const formData = new FormData(form);
       const eventId = form.getAttribute('data-event-id');
       const eventTitle = form.getAttribute('data-event-title');
+      const eventPrice = parseFloat(form.getAttribute('data-event-price') || '0');
+      const eventDate = form.getAttribute('data-event-date');
+      const eventLocation = form.getAttribute('data-event-location');
+
+      // If event has a price, redirect to checkout
+      if (eventPrice > 0) {
+        // Store event data for checkout
+        sessionStorage.setItem('eventId', eventId);
+        sessionStorage.setItem('eventTitle', eventTitle);
+        sessionStorage.setItem('eventPrice', eventPrice);
+        sessionStorage.setItem('eventDate', eventDate);
+        sessionStorage.setItem('eventLocation', eventLocation);
+        
+        // Redirect to event checkout
+        window.location.href = `/checkout-event.html?event_id=${eventId}&title=${encodeURIComponent(eventTitle)}&price=${eventPrice}&date=${eventDate}&location=${encodeURIComponent(eventLocation)}`;
+        return;
+      }
+
+      // For free events, continue with normal RSVP flow
+      msgEl.classList.remove('hidden');
+      msgEl.textContent = 'Sending...';
+      msgEl.className = 'rsvp-msg text-xs text-center mt-2 text-gold';
 
       const rsvpData = {
         event_id: parseInt(eventId),

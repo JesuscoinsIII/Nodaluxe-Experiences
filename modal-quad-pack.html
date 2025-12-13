@@ -514,9 +514,9 @@
           <!-- Submit Button -->
           <div>
             <button type="submit" class="w-full bg-gold text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-gold-dark transition">
-              Submit Booking Request
+              Continue to Payment
             </button>
-            <p class="text-center text-gray-500 text-sm mt-3">Our team will contact you within 24 hours to confirm your booking</p>
+            <p class="text-center text-gray-500 text-sm mt-3">Secure payment processing with Stripe</p>
           </div>
 
           <!-- Form Message -->
@@ -639,70 +639,29 @@
       e.preventDefault();
       const form = e.target;
       const formData = new FormData(form);
-      const messageEl = document.getElementById('formMessage');
       
-      // Show loading state
-      messageEl.classList.remove('hidden');
-      messageEl.className = 'text-center p-4 rounded-lg bg-gold/10 border border-gold/30 text-gold';
-      messageEl.textContent = 'Submitting your request...';
-
-      // Calculate add-ons
-      let addons = [];
-      if (formData.get('addon_extended_hours')) addons.push('Extended Hours (+$500/vehicle)');
-      if (formData.get('addon_themed')) addons.push('Themed Experience (+$800)');
-      if (formData.get('addon_sustainability')) addons.push('Sustainability Upgrade (+$400)');
-      if (formData.get('addon_photo_nft')) addons.push('Photo Booth/NFT (+$300)');
-
-      // Prepare data for email
-      const emailData = {
-        full_name: formData.get('full_name'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        subject: `Modal Quad Pack Booking Request - ${formData.get('event')}`,
-        message: `
-Package: ${formData.get('package_tier')}
-Event: ${formData.get('event')}
-Event Date: ${formData.get('event_date')}
-Company: ${formData.get('company') || 'N/A'}
-Guest Count: ${formData.get('guest_count')}
-Add-Ons: ${addons.length > 0 ? addons.join(', ') : 'None'}
-Multi-Event Discount: ${formData.get('multi_event_discount') ? 'Yes' : 'No'}
-
-Additional Notes:
-${formData.get('notes') || 'None'}
-        `.trim()
+      // Get package tier pricing
+      const packagePricing = {
+        'essential': 150,
+        'elite': 250,
+        'gold': 400,
+        'platinum': 500
       };
-
-      try {
-        const response = await fetch(`${SUPABASE_URL}/functions/v1/send-contact-email`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-          },
-          body: JSON.stringify(emailData)
-        });
-
-        if (response.ok) {
-          messageEl.className = 'text-center p-4 rounded-lg bg-green-900/30 border border-green-500/30 text-green-400';
-          messageEl.innerHTML = `
-            <div class="text-2xl mb-2">✓</div>
-            <div class="font-bold mb-2">Booking Request Submitted!</div>
-            <div class="text-sm">Our team will contact you within 24 hours to confirm your Modal Quad Pack booking.</div>
-          `;
-          form.reset();
-          document.getElementById('selectedPackageDisplay').classList.add('hidden');
-        } else {
-          throw new Error('Failed to submit');
-        }
-      } catch (err) {
-        console.error('Form submission error:', err);
-        messageEl.className = 'text-center p-4 rounded-lg bg-red-900/30 border border-red-500/30 text-red-400';
-        messageEl.innerHTML = `
-          <div class="font-bold mb-2">Error Submitting Request</div>
-          <div class="text-sm">Please call us at <a href="tel:+14696698878" class="underline">469-669-8878</a> or email <a href="mailto:info@nodaluxe.com" class="underline">info@nodaluxe.com</a></div>
-        `;
-      }
+      
+      // For now, use simplified package selection (matching checkout-quad-pack.html)
+      const packageTier = formData.get('package_tier');
+      const packageMap = {
+        'essential': 'bronze',
+        'elite': 'silver',
+        'corporate': 'gold'
+      };
+      
+      // Store package selection
+      const selectedPackage = packageMap[packageTier] || 'bronze';
+      sessionStorage.setItem('selectedPackage', selectedPackage);
+      
+      // Redirect to checkout
+      window.location.href = `/checkout-quad-pack.html?package=${selectedPackage}`;
     });
 
     // Smooth scroll for anchor links
