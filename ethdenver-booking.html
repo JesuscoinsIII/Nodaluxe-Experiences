@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ETHDenver 2025 - Hack the Bus Booking — Nodaluxe Experiences</title>
+  <meta name="description" content="Book your seat on the Prevost 'Hack the Bus' for ETHDenver 2025. Investment packages available." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#d4af37',
+              600: '#b8860b',
+              700: '#92710c',
+              800: '#78600d',
+              900: '#5c4a0e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gold-gradient {
+      background: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #d4af37 100%);
+    }
+    .text-gold {
+      color: #d4af37;
+    }
+    .bg-gold {
+      background-color: #d4af37;
+    }
+    .border-gold {
+      border-color: #d4af37;
+    }
+    .hover\:bg-gold-dark:hover {
+      background-color: #b8860b;
+    }
+    .tier-card {
+      transition: all 0.3s ease;
+    }
+    .tier-card:hover {
+      transform: translateY(-4px);
+      border-color: #d4af37;
+    }
+    .tier-card.selected {
+      border-color: #d4af37;
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-black text-white antialiased">
+  <!-- Test Mode Banner -->
+  <div id="testModeBanner" class="hidden bg-yellow-600 text-black text-center py-2 font-semibold">
+    🧪 TEST MODE - Use test card 4242 4242 4242 4242
+  </div>
+
+  <!-- Header -->
+  <header class="bg-black border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-6">
+        <a href="/" class="text-2xl font-bold text-gold">Nodaluxe</a>
+        <nav class="hidden md:flex gap-6 text-sm text-gray-300">
+          <a href="/#spaces" class="hover:text-gold transition">Partner Venues</a>
+          <a href="/events.html" class="hover:text-gold transition">Events</a>
+          <a href="/sponsorships.html" class="hover:text-gold transition">Sponsorships</a>
+        </nav>
+      </div>
+      <div class="text-sm flex items-center gap-4">
+        <a href="tel:+14696698878" class="text-gray-300 hover:text-gold transition">469-669-8878</a>
+        <a href="/book-now.html" class="bg-gold text-black px-4 py-2 rounded font-semibold hover:bg-gold-dark transition">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[40vh] flex items-center">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1920&q=80"
+           alt="Luxury Bus" class="w-full h-full object-cover" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/60"></div>
+    <div class="relative max-w-6xl mx-auto px-6 py-16 w-full">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl">
+        ETHDenver 2025<br />
+        <span class="text-gold">Hack the Bus</span>
+      </h1>
+      <p class="mt-6 text-xl text-gray-300 max-w-2xl">
+        Premium Prevost Coach • Mobile Hacking Space • Investment Opportunity
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4 text-sm text-gray-400">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <span>February 28 - March 2, 2025</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+          </svg>
+          <span>Denver, Colorado</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <!-- Event Description -->
+    <section class="mb-12">
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-8">
+        <h2 class="text-3xl font-bold text-gold mb-4">About the Experience</h2>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Join us for an exclusive mobile hacking experience during ETHDenver 2025. The Prevost "Hack the Bus" offers a premium collaborative workspace on wheels, equipped with high-speed WiFi, power outlets, comfortable seating, and all the amenities you need to build, network, and innovate during one of the most important events in the blockchain calendar.
+        </p>
+        <h3 class="text-xl font-semibold text-gold mt-6 mb-3">Features Include:</h3>
+        <ul class="grid md:grid-cols-2 gap-3 text-gray-300">
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-gold mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Premium Prevost coach with luxury seating</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-gold mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>High-speed WiFi and power outlets at every seat</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-gold mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Mobile workspace for coding and collaboration</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-gold mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Exclusive networking opportunities</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-gold mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Transportation between key ETHDenver venues</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-gold mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Investment opportunity with potential returns</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Investment Tiers -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-gold mb-6 text-center">Investment Packages</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Bronze Tier -->
+        <div class="tier-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectTier('Bronze', 500)">
+          <div class="text-center mb-4">
+            <h3 class="text-xl font-bold text-gray-300">Bronze</h3>
+            <div class="text-3xl font-bold text-gold mt-2">$500</div>
+            <div class="text-sm text-gray-500 mt-1">per seat</div>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>1 reserved seat</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>WiFi & power access</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Basic networking</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Silver Tier -->
+        <div class="tier-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectTier('Silver', 1000)">
+          <div class="text-center mb-4">
+            <h3 class="text-xl font-bold text-gray-300">Silver</h3>
+            <div class="text-3xl font-bold text-gold mt-2">$1,000</div>
+            <div class="text-sm text-gray-500 mt-1">per seat</div>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>All Bronze features</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Priority seating</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Premium networking access</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Refreshments included</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Gold Tier -->
+        <div class="tier-card bg-gray-900 border-2 border-gold rounded-xl p-6 cursor-pointer" onclick="selectTier('Gold', 2500)">
+          <div class="absolute top-0 right-0 bg-gold text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+            POPULAR
+          </div>
+          <div class="text-center mb-4 mt-2">
+            <h3 class="text-xl font-bold text-gold">Gold</h3>
+            <div class="text-3xl font-bold text-gold mt-2">$2,500</div>
+            <div class="text-sm text-gray-500 mt-1">per seat</div>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>All Silver features</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>VIP seating area</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Exclusive speaker access</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Higher ROI potential</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Event merchandise</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Platinum Tier -->
+        <div class="tier-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectTier('Platinum', 5000)">
+          <div class="text-center mb-4">
+            <h3 class="text-xl font-bold text-purple-400">Platinum</h3>
+            <div class="text-3xl font-bold text-gold mt-2">$5,000</div>
+            <div class="text-sm text-gray-500 mt-1">per seat</div>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>All Gold features</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Private workspace section</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>One-on-one mentorship</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Maximum ROI potential</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Priority future event access</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="mb-12">
+      <div class="max-w-2xl mx-auto bg-gray-900 border border-gray-800 rounded-xl p-8">
+        <h2 class="text-3xl font-bold text-gold mb-6 text-center">Complete Your Booking</h2>
+        
+        <form id="bookingForm" class="space-y-6">
+          <!-- Selected Tier Display -->
+          <div id="selectedTierDisplay" class="hidden bg-gold/10 border border-gold rounded-lg p-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-400">Selected Package</p>
+                <p class="text-xl font-bold text-gold" id="displayTierName"></p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-gray-400">Price per seat</p>
+                <p class="text-xl font-bold text-white" id="displayTierPrice"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Name -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Full Name *</label>
+            <input 
+              type="text" 
+              id="customerName" 
+              name="name" 
+              required 
+              class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" 
+              placeholder="John Doe" 
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+            <input 
+              type="email" 
+              id="customerEmail" 
+              name="email" 
+              required 
+              class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" 
+              placeholder="john@example.com" 
+            />
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Phone *</label>
+            <input 
+              type="tel" 
+              id="customerPhone" 
+              name="phone" 
+              required 
+              class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" 
+              placeholder="(555) 123-4567" 
+            />
+          </div>
+
+          <!-- Number of Seats -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Number of Seats *</label>
+            <input 
+              type="number" 
+              id="seats" 
+              name="seats" 
+              min="1" 
+              max="10" 
+              value="1" 
+              required 
+              class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" 
+            />
+            <small class="text-xs text-gray-500">Maximum 10 seats per booking</small>
+          </div>
+
+          <!-- Total Amount Display -->
+          <div id="totalAmountDisplay" class="hidden bg-black border border-gray-700 rounded-lg p-4">
+            <div class="flex items-center justify-between">
+              <span class="text-lg font-semibold text-gray-300">Total Amount:</span>
+              <span class="text-2xl font-bold text-gold" id="totalAmount">$0</span>
+            </div>
+          </div>
+
+          <!-- Special Requirements -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Special Requirements / Notes</label>
+            <textarea 
+              id="specialNotes" 
+              name="notes" 
+              rows="4" 
+              class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" 
+              placeholder="Any special requirements, dietary restrictions, accessibility needs, etc..."
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            id="submitBtn"
+            class="w-full bg-gold text-black px-6 py-4 rounded-lg font-bold text-lg hover:bg-gold-dark transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            Proceed to Payment
+          </button>
+
+          <!-- Form Message -->
+          <div id="formMsg" class="hidden text-sm text-center"></div>
+        </form>
+
+        <p class="text-xs text-gray-500 text-center mt-6">
+          Secure payment processing by Stripe. Your payment information is encrypted and secure.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-gray-900 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="text-2xl font-bold text-gold">Nodaluxe</div>
+          <p class="text-gray-400 text-sm mt-2">Premium transportation & event experiences.</p>
+        </div>
+
+        <div>
+          <div class="font-semibold text-gold mb-4">Contact</div>
+          <div class="text-gray-400 text-sm space-y-2">
+            <div><a href="tel:+14696698878" class="hover:text-gold transition">469-669-8878</a></div>
+            <div><a href="mailto:info@nodaluxe.com" class="hover:text-gold transition">info@nodaluxe.com</a></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="font-semibold text-gold mb-4">Quick Links</div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li><a href="/" class="hover:text-gold transition">Home</a></li>
+            <li><a href="/events.html" class="hover:text-gold transition">Events</a></li>
+            <li><a href="/sponsorships.html" class="hover:text-gold transition">Sponsorships</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="font-semibold text-gold mb-4">Follow Us</div>
+          <div class="flex gap-4">
+            <a href="https://x.com/NodaluXe" target="_blank" rel="noopener" class="text-gray-400 hover:text-gold transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 Nodaluxe Experiences. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // State
+    let selectedTier = null;
+    let tierPrice = 0;
+
+    // Check if we're in test mode (show banner if STRIPE_SECRET_KEY would start with sk_test_)
+    // In production, this would be checked server-side, but for demo purposes we'll show it by default
+    document.getElementById('testModeBanner').classList.remove('hidden');
+
+    // Select tier function
+    function selectTier(tierName, price) {
+      selectedTier = tierName;
+      tierPrice = price;
+
+      // Update UI
+      document.querySelectorAll('.tier-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      event.currentTarget.classList.add('selected');
+
+      // Show selected tier
+      document.getElementById('selectedTierDisplay').classList.remove('hidden');
+      document.getElementById('displayTierName').textContent = tierName + ' Package';
+      document.getElementById('displayTierPrice').textContent = '$' + price.toLocaleString();
+
+      // Update total
+      updateTotal();
+
+      // Scroll to form
+      document.getElementById('bookingForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Update total amount
+    function updateTotal() {
+      const seats = parseInt(document.getElementById('seats').value) || 1;
+      const total = tierPrice * seats;
+      
+      if (selectedTier) {
+        document.getElementById('totalAmountDisplay').classList.remove('hidden');
+        document.getElementById('totalAmount').textContent = '$' + total.toLocaleString();
+      }
+    }
+
+    // Update total when seats change
+    document.getElementById('seats').addEventListener('input', updateTotal);
+
+    // Form submission
+    document.getElementById('bookingForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Validate tier selection
+      if (!selectedTier) {
+        alert('Please select an investment package first');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      const submitBtn = document.getElementById('submitBtn');
+      const formMsg = document.getElementById('formMsg');
+      
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Processing...';
+      formMsg.classList.remove('hidden');
+      formMsg.textContent = 'Creating secure checkout session...';
+      formMsg.className = 'text-sm text-center text-gold';
+
+      const customerName = document.getElementById('customerName').value;
+      const customerEmail = document.getElementById('customerEmail').value;
+      const seats = parseInt(document.getElementById('seats').value);
+
+      try {
+        // Call Netlify function to create Stripe checkout session
+        const response = await fetch('/.netlify/functions/create-stripe-checkout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            tierName: selectedTier,
+            tierPrice: tierPrice,
+            seats: seats,
+            customerEmail: customerEmail,
+            customerName: customerName
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          formMsg.textContent = 'Redirecting to secure payment...';
+          // Redirect to Stripe Checkout
+          window.location.href = data.url;
+        } else {
+          throw new Error(data.error || 'Failed to create checkout session');
+        }
+      } catch (error) {
+        console.error('Checkout error:', error);
+        formMsg.textContent = 'Error: ' + error.message + '. Please try again or contact support.';
+        formMsg.className = 'text-sm text-center text-red-400';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Proceed to Payment';
+      }
+    });
+  </script>
+</body>
+</html>

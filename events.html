@@ -128,16 +128,73 @@
 
   <!-- Main Content -->
   <main class="max-w-6xl mx-auto px-6 py-12">
-    <!-- Loading State -->
-    <div id="loadingState" class="text-center py-20">
-      <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-gold border-r-transparent"></div>
-      <p class="text-gray-400 mt-4">Loading events...</p>
-    </div>
+    <!-- Featured Events Section -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-gold mb-6">Featured Events</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- ETHDenver 2025 Event Card -->
+        <div class="bg-gray-900 border border-gold rounded-lg overflow-hidden hover:border-gold transition shadow-lg shadow-gold/20">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80"
+                 alt="ETHDenver 2025 - Hack the Bus"
+                 class="w-full h-48 object-cover" />
+            <div class="absolute top-2 right-2 bg-gold text-black text-xs font-bold px-3 py-1 rounded">
+              INVESTMENT OPPORTUNITY
+            </div>
+          </div>
 
-    <!-- Events Grid -->
-    <div id="eventsGrid" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-      <!-- Event cards will be dynamically inserted here -->
-    </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gold">ETHDenver 2025 - Hack the Bus</h3>
+            <p class="text-gray-400 text-sm mt-2">February 28 - March 2, 2025</p>
+            <p class="text-gray-500 text-xs mt-1">Denver, Colorado</p>
+            <p class="text-gray-300 text-sm mt-3 line-clamp-2">
+              Join us for an exclusive mobile hacking experience. Premium Prevost coach with high-speed WiFi, power outlets, and collaborative workspace. Investment packages available.
+            </p>
+            
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span class="bg-gold/20 text-gold px-2 py-1 rounded">Mobile Workspace</span>
+              <span class="bg-gold/20 text-gold px-2 py-1 rounded">WiFi & Power</span>
+              <span class="bg-gold/20 text-gold px-2 py-1 rounded">Networking</span>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-gray-800">
+              <p class="text-sm text-gray-400 mb-2">Investment Tiers:</p>
+              <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+                <span>Bronze: $500</span>
+                <span class="text-gray-600">|</span>
+                <span>Silver: $1,000</span>
+                <span class="text-gray-600">|</span>
+                <span>Gold: $2,500</span>
+                <span class="text-gray-600">|</span>
+                <span>Platinum: $5,000</span>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <a href="/ethdenver-booking.html" class="block w-full bg-gold text-black px-4 py-3 rounded text-center text-sm font-semibold hover:bg-gold-dark transition">
+                Book Your Seat →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Regular Events Section -->
+    <section>
+      <h2 class="text-3xl font-bold text-gold mb-6">All Events</h2>
+      
+      <!-- Loading State -->
+      <div id="loadingState" class="text-center py-20">
+        <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-gold border-r-transparent"></div>
+        <p class="text-gray-400 mt-4">Loading events...</p>
+      </div>
+
+      <!-- Events Grid -->
+      <div id="eventsGrid" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <!-- Event cards will be dynamically inserted here -->
+      </div>
+    </section>
 
     <!-- Empty State -->
     <div id="noEventsMessage" class="hidden text-center py-20">
