@@ -2,7 +2,7 @@
 
 ## Repository Overview
 
-Nodaluxe-Experiences is a comprehensive event management solution built to enhance Modal booking and streamline the broader event ecosystem. The platform provides tools and integrations to simplify event creation, scheduling, and delivery for both event organizers and attendees.
+Nodaluxe-Experiences is a comprehensive event management solution built to enhance Modal (a booking platform) integration and streamline the broader event ecosystem. The platform provides tools and integrations to simplify event creation, scheduling, and delivery for both event organizers and attendees.
 
 ## Technology Stack
 
@@ -128,7 +128,7 @@ Nodaluxe-Experiences is a comprehensive event management solution built to enhan
 
 ## Important Notes
 
-- The project uses Netlify as the primary hosting platform (not Vercel, despite README mentions)
+- The project uses Netlify as the primary hosting platform; Vercel is mentioned in documentation as an alternative deployment option
 - Static HTML files suggest a simple, performant architecture
 - Heavy reliance on serverless functions for backend logic
 - Multiple integration points require careful credential management
