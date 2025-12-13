@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout — Nodaluxe Experiences</title>
+    <meta name="description" content="Complete your booking with Nodaluxe Experiences." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gold: {
+                50: '#fffbeb',
+                100: '#fef3c7',
+                200: '#fde68a',
+                300: '#fcd34d',
+                400: '#fbbf24',
+                500: '#d4af37',
+                600: '#b8860b',
+                700: '#92710c',
+                800: '#78600d',
+                900: '#5c4a0e',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .gold-gradient {
+        background: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #d4af37 100%);
+      }
+      .text-gold {
+        color: #d4af37;
+      }
+      .bg-gold {
+        background-color: #d4af37;
+      }
+      .border-gold {
+        border-color: #d4af37;
+      }
+      .hover\:bg-gold-dark:hover {
+        background-color: #b8860b;
+      }
+    </style>
+  </head>
+  <body class="bg-black text-white antialiased">
+    <div id="root"></div>
+    <script type="module" src="/main.jsx"></script>
+  </body>
+</html>
