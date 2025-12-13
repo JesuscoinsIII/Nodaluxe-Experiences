@@ -404,7 +404,7 @@
       </div>
 
       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-        <p>&copy; 2024-2025 Nodaluxe Experiences. All rights reserved.</p>
+        <p>&copy; <span id="copyright-year"></span> Nodaluxe Experiences. All rights reserved.</p>
         <p class="mt-2 text-xs">NFTs may be considered securities. Consult with legal and financial advisors before purchasing.</p>
       </div>
     </div>
@@ -439,6 +439,9 @@
   </div>
 
   <script>
+    // Set dynamic copyright year
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
     // NFT Marketplace Functions
     function mintNFT(collectionName, price) {
       // In production, this would integrate with Web3 wallet and smart contracts
