@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NFT Marketplace — Nodaluxe Experiences</title>
+  <meta name="description" content="Tokenized venue access, transportation assets, and event experiences. Own a piece of Texas event culture through Real-World Asset NFTs." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#d4af37',
+              600: '#b8860b',
+              700: '#92710c',
+              800: '#78600d',
+              900: '#5c4a0e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gold-gradient {
+      background: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #d4af37 100%);
+    }
+    .text-gold {
+      color: #d4af37;
+    }
+    .bg-gold {
+      background-color: #d4af37;
+    }
+    .border-gold {
+      border-color: #d4af37;
+    }
+    .hover\:bg-gold-dark:hover {
+      background-color: #b8860b;
+    }
+    .nft-card {
+      transition: all 0.3s ease;
+    }
+    .nft-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    }
+    .pulse-gold {
+      animation: pulse-gold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse-gold {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: .7;
+      }
+    }
+  </style>
+</head>
+<body class="bg-black text-white antialiased">
+  <!-- Header -->
+  <header class="bg-black border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-6">
+        <a href="/" class="text-2xl font-bold text-gold">Nodaluxe</a>
+        <nav class="hidden md:flex gap-6 text-sm text-gray-300">
+          <a href="/#spaces" class="hover:text-gold transition">Partner Venues</a>
+          <a href="/events.html" class="hover:text-gold transition">Events</a>
+          <a href="/sponsorships.html" class="hover:text-gold transition">Sponsorships</a>
+          <a href="/investments.html" class="hover:text-gold transition">Investments</a>
+          <a href="/nft-marketplace.html" class="text-gold transition">NFT Marketplace</a>
+        </nav>
+      </div>
+      <div class="text-sm flex items-center gap-4">
+        <a href="tel:+14696698878" class="text-gray-300 hover:text-gold transition">469-669-8878</a>
+        <a href="/book-now.html" class="bg-gold text-black px-4 py-2 rounded font-semibold hover:bg-gold-dark transition">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center">
+    <div class="absolute inset-0">
+      <img src="https://i.ibb.co/xqGJ7DZr/642-458-max.jpg" alt="NFT Marketplace" class="w-full h-full object-cover opacity-40" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/60"></div>
+    <div class="relative max-w-6xl mx-auto px-6 py-20">
+      <div class="inline-block bg-gold text-black px-4 py-1 rounded-full text-xs font-bold mb-4 pulse-gold">🚀 NEW: Location-Based NFTs</div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl">
+        <span class="text-gold">Real-World Asset</span> NFT Marketplace
+      </h1>
+      <p class="mt-6 text-xl text-gray-300 max-w-2xl">Own tokenized venue access, transportation assets, and exclusive event experiences across Texas.</p>
+      <div class="mt-8 flex gap-4">
+        <a href="#featured-drops" class="bg-gold text-black px-6 py-3 rounded font-semibold hover:bg-gold-dark transition">Explore NFTs</a>
+        <a href="#how-it-works" class="bg-transparent border border-gold text-gold px-6 py-3 rounded font-semibold hover:bg-gold hover:text-black transition">How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-6xl mx-auto px-6 pt-20">
+
+    <!-- Featured Location Drop -->
+    <section id="featured-drops" class="py-12">
+      <div class="bg-gradient-to-r from-gold/20 to-transparent border-l-4 border-gold p-6 rounded-lg mb-12">
+        <div class="flex items-start gap-4">
+          <div class="text-gold text-3xl">📍</div>
+          <div>
+            <h3 class="text-2xl font-bold text-gold mb-2">Featured Location Drop</h3>
+            <p class="text-gray-300 mb-2">New location-based NFT series launching soon. This exclusive collection represents tokenized access and revenue share for a premier Texas event venue.</p>
+            <a href="https://goo.gl/maps/AumVb9CEbV42w9AT7" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline text-sm inline-flex items-center gap-1">
+              📍 View Location on Google Maps →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold text-center mb-4">Featured <span class="text-gold">NFT Collections</span></h2>
+      <p class="text-center text-gray-400 mb-12">Real-World Asset NFTs with tangible utility and revenue potential</p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Venue Access NFT -->
+        <div class="nft-card bg-gray-900 border border-gray-800 rounded-lg overflow-hidden">
+          <div class="relative">
+            <img src="https://i.ibb.co/4Z9JBD91/Vector-2.webp" alt="Venue Access NFT" class="w-full h-48 object-cover" />
+            <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-gold border border-gold">
+              COMING SOON
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-semibold text-gold">Venue Access Series</h3>
+              <span class="text-gray-400 text-sm">0/100</span>
+            </div>
+            <p class="text-gray-400 text-sm mb-4">Tokenized access passes for exclusive events at premier Texas venues. Includes revenue share from venue bookings.</p>
+            
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-500">Tier</span>
+                <span class="text-gold font-semibold">Bronze - Platinum</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-500">Price Range</span>
+                <span class="text-white font-semibold">$500 - $50,000</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-500">Revenue Share</span>
+                <span class="text-green-400 font-semibold">2-15%</span>
+              </div>
+            </div>
+
+            <button onclick="notifyMe('Venue Access Series')" class="w-full bg-gray-800 border border-gold text-gold px-4 py-3 rounded font-semibold hover:bg-gold hover:text-black transition">
+              Notify Me at Launch
+            </button>
+          </div>
+        </div>
+
+        <!-- Transportation Fleet NFT -->
+        <div class="nft-card bg-gray-900 border-2 border-gold rounded-lg overflow-hidden relative">
+          <div class="absolute top-0 right-0 bg-gold text-black text-xs font-bold px-3 py-1 rounded-bl z-10">FEATURED</div>
+          <div class="relative">
+            <img src="https://i.ibb.co/xqGJ7DZr/642-458-max.jpg" alt="Fleet NFT" class="w-full h-48 object-cover" />
+            <div class="absolute top-3 left-3 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-green-400 border border-green-400">
+              MINTING NOW
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-semibold text-gold">Fleet Ownership Tokens</h3>
+              <span class="text-gray-400 text-sm">23/50</span>
+            </div>
+            <p class="text-gray-400 text-sm mb-4">Fractional ownership of luxury vehicle fleets. Earn revenue from every booking made with tokenized vehicles.</p>
+            
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-500">Fleet Type</span>
+                <span class="text-gold font-semibold">Executive Sprinters</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-500">Price</span>
+                <span class="text-white font-semibold">$2,500</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-500">Monthly Yield</span>
+                <span class="text-green-400 font-semibold">8-12%</span>
+              </div>
+            </div>
+
+            <button onclick="mintNFT('Fleet Ownership Tokens', 2500)" class="w-full bg-gold text-black px-4 py-3 rounded font-semibold hover:bg-gold-dark transition">
+              Mint Now
+            </button>
+          </div>
+        </div>
+
+        <!-- VIP Experience NFT -->
+        <div class="nft-card bg-gray-900 border border-gray-800 rounded-lg overflow-hidden">
+          <div class="relative">
+            <img src="https://i.ibb.co/4Z9JBD91/Vector-2.webp" alt="VIP Experience NFT" class="w-full h-48 object-cover" />
+            <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-purple-400 border border-purple-400">
+              EXCLUSIVE
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-semibold text-gold">VIP Experience Pass</h3>
+              <span class="text-gray-400 text-sm">7/25</span>
+            </div>
+            <p class="text-gray-400 text-sm mb-4">Lifetime VIP access to major Texas events. Includes priority transportation and exclusive pre-event experiences.</p>
+            
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-500">Access Level</span>
+                <span class="text-gold font-semibold">All Events</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-500">Price</span>
+                <span class="text-white font-semibold">$10,000</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-500">Benefits</span>
+                <span class="text-purple-400 font-semibold">Lifetime Access</span>
+              </div>
+            </div>
+
+            <button onclick="mintNFT('VIP Experience Pass', 10000)" class="w-full bg-gray-800 border border-gold text-gold px-4 py-3 rounded font-semibold hover:bg-gold hover:text-black transition">
+              Mint NFT
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-gray-900 -mx-6 px-6 my-20">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-4">How <span class="text-gold">It Works</span></h2>
+        <p class="text-center text-gray-400 mb-12">Simple steps to own Real-World Asset NFTs</p>
+
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold text-black text-2xl font-bold mb-4">1</div>
+            <h3 class="text-lg font-semibold text-gold mb-2">Browse Collections</h3>
+            <p class="text-gray-400 text-sm">Explore venue access, fleet ownership, and experience NFTs</p>
+          </div>
+
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold text-black text-2xl font-bold mb-4">2</div>
+            <h3 class="text-lg font-semibold text-gold mb-2">Select Your NFT</h3>
+            <p class="text-gray-400 text-sm">Choose the asset that aligns with your investment goals</p>
+          </div>
+
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold text-black text-2xl font-bold mb-4">3</div>
+            <h3 class="text-lg font-semibold text-gold mb-2">Mint & Own</h3>
+            <p class="text-gray-400 text-sm">Complete the purchase and receive your tokenized asset</p>
+          </div>
+
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold text-black text-2xl font-bold mb-4">4</div>
+            <h3 class="text-lg font-semibold text-gold mb-2">Earn & Enjoy</h3>
+            <p class="text-gray-400 text-sm">Receive revenue distributions and access your benefits</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20">
+      <h2 class="text-3xl font-bold text-center mb-4">Why Nodaluxe <span class="text-gold">RWA NFTs?</span></h2>
+      <p class="text-center text-gray-400 mb-12">Real utility meets digital ownership</p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+          <div class="text-gold text-4xl mb-4">💰</div>
+          <h3 class="text-xl font-semibold text-gold mb-2">Revenue Generating</h3>
+          <p class="text-gray-400 text-sm">All NFTs provide revenue share from actual business operations - not speculation</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+          <div class="text-gold text-4xl mb-4">🎫</div>
+          <h3 class="text-xl font-semibold text-gold mb-2">Real Utility</h3>
+          <p class="text-gray-400 text-sm">Access to events, transportation, and experiences - tangible benefits beyond ownership</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+          <div class="text-gold text-4xl mb-4">📈</div>
+          <h3 class="text-xl font-semibold text-gold mb-2">Asset-Backed Value</h3>
+          <p class="text-gray-400 text-sm">Every NFT represents real vehicles, venues, or infrastructure - not just digital art</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+          <div class="text-gold text-4xl mb-4">🔒</div>
+          <h3 class="text-xl font-semibold text-gold mb-2">SEC Compliant</h3>
+          <p class="text-gray-400 text-sm">Structured as compliant securities where applicable - protecting your investment</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+          <div class="text-gold text-4xl mb-4">🔄</div>
+          <h3 class="text-xl font-semibold text-gold mb-2">Secondary Market</h3>
+          <p class="text-gray-400 text-sm">Trade your NFTs on secondary marketplaces - liquidity when you need it</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+          <div class="text-gold text-4xl mb-4">🤝</div>
+          <h3 class="text-xl font-semibold text-gold mb-2">Community Benefits</h3>
+          <p class="text-gray-400 text-sm">Join exclusive holder events, networking opportunities, and strategic discussions</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-900 -mx-6 px-6 my-20">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked <span class="text-gold">Questions</span></h2>
+
+        <div class="space-y-6">
+          <div class="bg-black border border-gray-800 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-gold mb-2">What makes these NFTs different from regular NFTs?</h3>
+            <p class="text-gray-400 text-sm">Our NFTs represent actual Real-World Assets (RWAs) - vehicles, venue access, and infrastructure. They generate revenue from real business operations and provide tangible utility beyond digital ownership.</p>
+          </div>
+
+          <div class="bg-black border border-gray-800 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-gold mb-2">How do revenue distributions work?</h3>
+            <p class="text-gray-400 text-sm">Revenue from bookings, events, and services is distributed to NFT holders based on their tier and ownership percentage. Distributions are made weekly, monthly, or quarterly depending on the NFT type.</p>
+          </div>
+
+          <div class="bg-black border border-gray-800 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-gold mb-2">Can I resell my NFT?</h3>
+            <p class="text-gray-400 text-sm">Yes! All NFTs can be traded on secondary marketplaces. Nodaluxe receives a 5-10% royalty on secondary sales, which helps fund platform development and benefits all holders.</p>
+          </div>
+
+          <div class="bg-black border border-gray-800 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-gold mb-2">Are these NFTs regulated securities?</h3>
+            <p class="text-gray-400 text-sm">NFTs that provide revenue share may be considered securities and are structured to comply with SEC regulations. Venue access and experience NFTs without revenue share are utility tokens.</p>
+          </div>
+
+          <div class="bg-black border border-gray-800 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-gold mb-2">What blockchain are these NFTs on?</h3>
+            <p class="text-gray-400 text-sm">Nodaluxe NFTs are minted on Ethereum and Polygon networks for maximum compatibility and lower transaction fees. Cross-chain bridging is supported.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+      <div class="bg-gradient-to-r from-gold/10 to-transparent border-2 border-gold rounded-lg p-12 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to Own Real-World <span class="text-gold">Assets?</span></h2>
+        <p class="text-gray-300 mb-8 max-w-2xl mx-auto">Join the future of asset ownership. Tokenize your investment in Texas event infrastructure.</p>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <a href="#featured-drops" class="bg-gold text-black px-8 py-4 rounded font-semibold hover:bg-gold-dark transition">Explore NFTs</a>
+          <a href="/investments.html" class="bg-transparent border-2 border-gold text-gold px-8 py-4 rounded font-semibold hover:bg-gold hover:text-black transition">View Investment Options</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-gray-900 border-t border-gray-800 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="text-2xl font-bold text-gold">Nodaluxe</div>
+          <p class="text-gray-400 text-sm mt-2">Premium transportation & RWA NFT marketplace across Texas.</p>
+        </div>
+
+        <div>
+          <div class="font-semibold text-gold mb-4">Contact</div>
+          <div class="text-gray-400 text-sm space-y-2">
+            <div><a href="tel:+14696698878" class="hover:text-gold transition">469-669-8878</a></div>
+            <div><a href="mailto:info@nodaluxe.com" class="hover:text-gold transition">info@nodaluxe.com</a></div>
+            <div><a href="mailto:nft@nodaluxe.com" class="hover:text-gold transition">nft@nodaluxe.com</a></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="font-semibold text-gold mb-4">Quick Links</div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li><a href="/" class="hover:text-gold transition">Home</a></li>
+            <li><a href="/#spaces" class="hover:text-gold transition">Partner Venues</a></li>
+            <li><a href="/events.html" class="hover:text-gold transition">Events</a></li>
+            <li><a href="/nft-marketplace.html" class="hover:text-gold transition">NFT Marketplace</a></li>
+            <li><a href="/investments.html" class="hover:text-gold transition">Investments</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="font-semibold text-gold mb-4">Legal</div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li><a href="/privacy-policy.html" class="hover:text-gold transition">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-gold transition">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-gold transition">NFT Purchase Agreement</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; <span id="copyright-year"></span> Nodaluxe Experiences. All rights reserved.</p>
+        <p class="mt-2 text-xs">NFTs may be considered securities. Consult with legal and financial advisors before purchasing.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Modal -->
+  <div id="notification-modal" class="hidden fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+    <div class="relative w-full max-w-md bg-gray-900 border-2 border-gold rounded-lg p-8">
+      <button onclick="closeNotificationModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gold transition text-2xl">&times;</button>
+      
+      <h3 class="text-2xl font-semibold text-gold mb-4">Get Notified at Launch</h3>
+      <p class="text-gray-400 text-sm mb-6" id="notification-collection-name"></p>
+
+      <form id="notification-form" class="space-y-4">
+        <div>
+          <label class="text-sm text-gray-400 mb-1 block">Email *</label>
+          <input type="email" name="email" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" />
+        </div>
+
+        <div>
+          <label class="text-sm text-gray-400 mb-1 block">Name</label>
+          <input type="text" name="name" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" />
+        </div>
+
+        <button type="submit" class="w-full bg-gold text-black px-6 py-3 rounded font-semibold hover:bg-gold-dark transition">
+          Notify Me
+        </button>
+
+        <div id="notification-message" class="hidden text-center text-sm mt-4"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Set dynamic copyright year
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+    // NFT Marketplace Functions
+    function mintNFT(collectionName, price) {
+      // In production, this would integrate with Web3 wallet and smart contracts
+      alert(`Minting "${collectionName}" NFT for $${price.toLocaleString()}\n\nThis feature will be activated once smart contracts are deployed.\n\nFor early access, please contact: nft@nodaluxe.com`);
+    }
+
+    function notifyMe(collectionName) {
+      document.getElementById('notification-collection-name').textContent = `Be the first to know when "${collectionName}" drops.`;
+      document.getElementById('notification-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeNotificationModal() {
+      document.getElementById('notification-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Handle notification form
+    document.getElementById('notification-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msgEl = document.getElementById('notification-message');
+      msgEl.classList.remove('hidden');
+      msgEl.textContent = 'Subscribing...';
+      msgEl.className = 'text-center text-sm mt-4 text-gold';
+
+      const formData = new FormData(e.target);
+      const collectionName = document.getElementById('notification-collection-name').textContent;
+
+      // Simulate API call - in production, this would save to database
+      // const email = formData.get('email');
+      // const name = formData.get('name');
+      // await saveNotificationRequest({ email, name, collection: collectionName });
+      
+      setTimeout(() => {
+        msgEl.textContent = '✓ You're on the list! We'll notify you when this NFT drops.';
+        msgEl.className = 'text-center text-sm mt-4 text-green-400';
+        setTimeout(() => {
+          closeNotificationModal();
+          e.target.reset();
+        }, 2000);
+      }, 1000);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
