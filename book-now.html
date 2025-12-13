@@ -180,7 +180,10 @@
 
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
           <small class="text-xs text-gray-500">By submitting you agree to our <a href="#terms" class="text-gold hover:underline">Terms</a> and <a href="#privacy" class="text-gold hover:underline">Privacy Policy</a>.</small>
-          <button type="submit" class="bg-gold text-black px-8 py-3 rounded font-semibold hover:bg-gold-dark transition">Submit Request</button>
+          <div class="flex gap-3">
+            <button type="submit" class="bg-gold text-black px-8 py-3 rounded font-semibold hover:bg-gold-dark transition">Submit Request</button>
+            <button type="button" id="proceedToPayment" class="bg-green-600 text-white px-8 py-3 rounded font-semibold hover:bg-green-700 transition">Pay Now</button>
+          </div>
         </div>
 
         <div id="formMsg" class="hidden text-sm mt-2 text-center"></div>
@@ -375,6 +378,30 @@
         formMsg.textContent = 'Error. Please email info@nodaluxe.com or call 469-669-8878';
         formMsg.className = 'text-sm mt-2 text-center text-red-400';
       }
+    });
+
+    // Handle "Pay Now" button
+    document.getElementById('proceedToPayment').addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Validate form first
+      if (!transportForm.checkValidity()) {
+        transportForm.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(transportForm);
+      const params = new URLSearchParams({
+        pickup: formData.get('pickup_location'),
+        dropoff: formData.get('dropoff_location'),
+        date: formData.get('event_date'),
+        time: '12:00', // Default time
+        passengers: formData.get('passengers'),
+        vehicle: formData.get('service_type'),
+        amount: '150.00' // Default amount, should be calculated based on service
+      });
+
+      window.location.href = `/checkout.html?${params.toString()}`;
     });
   </script>
 </body>

@@ -14,19 +14,22 @@ Nodaluxe-Experiences is a comprehensive event management solution built to enhan
 ## Key Features
 
 *   **Seamless Booking:**  Our core feature provides a frictionless booking experience, integrating with Modal and other platforms.
+*   **React Checkout Page:**  Secure payment processing with Stripe integration in test mode for luxury transportation bookings.
 *   **Event Management Tools:**  (Expand on this with specifics - e.g., ticketing, scheduling, attendee management)
 *   **Integration with TWILIO:**  Enables SMS and voice communication for event updates and reminders.
-*   **Vercel Deployment:**  Leveraging Vercel for fast and reliable hosting.
+*   **Netlify Deployment:**  Fast and reliable hosting with automated builds.
 *   **Google Cloud Integration:**  Utilizing Google Cloud services for scalability and data management.
 *   **Firebase Integration:**  Leveraging Firebase for authentication and real-time data synchronization.
 *   **SendGrid Integration:**  Enabling reliable email delivery for event notifications and marketing.
 
 ## Technology Stack
 
-*   **Frontend:** Next.js
+*   **Frontend:** HTML/CSS/JavaScript, React 19 (for checkout page)
+*   **Build Tool:** Vite
+*   **Payment Processing:** Stripe (test mode)
 *   **Backend:** sTRI[E] (Please provide more details about sTRI[E])
 *   **Cloud:** Google Cloud
-*   **Hosting:** Vercel
+*   **Hosting:** Netlify
 *   **Communication:** Twilio, SendGrid
 *   **Database:** Firebase
 *   **Version Control:** GitHub
@@ -84,12 +87,30 @@ Nodaluxe-Experiences is a comprehensive event management solution built to enhan
 *   **Running the Development Server:**
 
     ```bash
-    npm run dev  # or yarn dev
+    npm run dev  # Starts the React checkout page development server
+    ```
+
+*   **Building for Production:**
+
+    ```bash
+    npm run build  # Builds the React checkout page
     ```
 
 *   **Deployment:**
 
-    *   The project is configured for Vercel deployment.  Push your changes to the main branch, and Vercel will automatically deploy the application.
+    *   The project is configured for Netlify deployment. Push your changes to the main branch, and Netlify will automatically build and deploy the application.
+    *   The build command `npm run build` creates the checkout page in `dist/checkout/`
+
+### Checkout Page
+
+The React-based checkout page provides secure payment processing for transportation bookings. See [CHECKOUT.md](CHECKOUT.md) for detailed documentation.
+
+**Quick Start:**
+1. Navigate to `/book-now.html` to create a booking
+2. Click "Pay Now" to proceed to the checkout page
+3. Use test card `4242 4242 4242 4242` for testing payments
+
+**Note:** The current implementation is in test mode. For production use, a backend API is required to create Stripe Payment Intents.
 
 ## Contributing
 
