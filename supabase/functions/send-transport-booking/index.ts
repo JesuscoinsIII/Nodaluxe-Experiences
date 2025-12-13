@@ -15,21 +15,20 @@ serve(async (req) => {
 
   // Determine dynamic email based on service type
   const getDynamicEmail = (serviceType: string) => {
-    switch (serviceType?.toLowerCase()) {
-      case 'event':
-      case 'event transportation':
-        return 'events@nodaluxe.com';
-      case 'airport':
-      case 'airport transfer':
-        return 'ryan@nodaluxe.com';
-      case 'hourly':
-      case 'hourly rental':
-        return 'ryan@nodaluxe.com';
-      case 'point-to-point':
-        return 'ryan@nodaluxe.com';
-      default:
-        return 'info@nodaluxe.com';
+    const normalizedType = serviceType?.toLowerCase();
+    
+    // Events go to dedicated events email
+    if (normalizedType === 'event' || normalizedType === 'event transportation') {
+      return 'events@nodaluxe.com';
     }
+    
+    // Transportation services go to ryan
+    if (['airport', 'airport transfer', 'hourly', 'hourly rental', 'point-to-point'].includes(normalizedType)) {
+      return 'ryan@nodaluxe.com';
+    }
+    
+    // Default to general info email
+    return 'info@nodaluxe.com';
   };
 
   try {
@@ -85,9 +84,13 @@ If anything changes in the meantime, you can reply directly to this email.
 
 We look forward to taking great care of you.
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 This request was submitted on ${new Date().toLocaleString("en-US", { timeZone: "America/Chicago" })} CT.
 
-We are thrilled to have you onboard while we aim to provide the most rare and unique experience as we embark on this journey together. Typical response time is within 24-48 hours, but you can always pick up the phone and call us at (469) 669-8878 or email us at ${dynamicEmail}.
+We are thrilled to have you onboard while we aim to provide the most rare and unique experience as we embark on this journey together.
+
+Typical response time is within 24-48 hours, but you can always pick up the phone and call us at (469) 669-8878 or email us at ${dynamicEmail}.
 
 — Nodaluxe Experiences
 `;
