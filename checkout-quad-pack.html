@@ -211,7 +211,9 @@
     document.getElementById('total-amount').textContent = `$${selectedPackage.price.toFixed(2)}`;
 
     // Initialize Stripe
-    const stripe = Stripe('pk_test_51QO5uJP3lGLi2h0xwzIpv8FqJq0YO2Q7XfCgC8YgqpYXt0YVLzQ0H0KLq6Y7xRWr1U6Y0Y0Y0Y0Y0Y0Y0Y0Y0Y0Y0Y0Y');
+    // TODO: Replace with your actual Stripe publishable key
+    const STRIPE_KEY = 'pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE';
+    const stripe = Stripe(STRIPE_KEY);
     let elements;
     let paymentIntentId;
 

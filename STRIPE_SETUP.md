@@ -41,10 +41,32 @@ This guide will help you set up Stripe payment processing for Nodaluxe Experienc
 STRIPE_PUBLISHABLE_KEY=pk_test_51...
 STRIPE_SECRET_KEY=sk_test_51...
 STRIPE_WEBHOOK_SECRET=(leave empty for now, we'll add this in Step 5)
+SUPABASE_URL=https://fdezwoglwhbkhzhmnxxv.supabase.co
+SUPABASE_SERVICE_KEY=(your service role key from Supabase)
+SUPABASE_ANON_KEY=(your anon key from Supabase)
+RESEND_API_KEY=re_... (optional, for email confirmations)
 ```
 
 4. Click **Save**
 5. Redeploy your site for changes to take effect
+
+## Step 3b: Configure Stripe Publishable Key in Checkout Pages
+
+Since the checkout pages run on the client-side, you need to update the Stripe publishable key directly in the HTML files:
+
+1. Open each checkout file:
+   - `checkout.html`
+   - `checkout-quad-pack.html`
+   - `checkout-event.html`
+
+2. Find the line that says:
+   ```javascript
+   const STRIPE_KEY = 'pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE';
+   ```
+
+3. Replace `pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE` with your actual Stripe publishable key
+
+**Note:** The publishable key is safe to expose in client-side code. However, NEVER expose your secret key (`sk_test_...` or `sk_live_...`) in the frontend.
 
 ## Step 4: Update Database Schema
 
