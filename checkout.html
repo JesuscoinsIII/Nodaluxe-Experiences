@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout — Nodaluxe Experiences</title>
+  <meta name="description" content="Complete your luxury transportation booking with secure payment." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#d4af37',
+              600: '#b8860b',
+              700: '#92710c',
+              800: '#78600d',
+              900: '#5c4a0e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gold-gradient {
+      background: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #d4af37 100%);
+    }
+    .text-gold { color: #d4af37; }
+    .bg-gold { background-color: #d4af37; }
+    .border-gold { border-color: #d4af37; }
+    .hover\:bg-gold-dark:hover { background-color: #b8860b; }
+    
+    .spinner {
+      border: 3px solid rgba(212, 175, 55, 0.3);
+      border-radius: 50%;
+      border-top-color: #d4af37;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    #payment-element {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body class="bg-black text-white antialiased">
+  <!-- Header -->
+  <header class="bg-black border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-6">
+        <a href="/" class="text-2xl font-bold text-gold">Nodaluxe</a>
+        <nav class="hidden md:flex gap-6 text-sm text-gray-300">
+          <a href="/#spaces" class="hover:text-gold transition">Partner Venues</a>
+          <a href="/events.html" class="hover:text-gold transition">Events</a>
+          <a href="/sponsorships.html" class="hover:text-gold transition">Sponsorships</a>
+        </nav>
+      </div>
+      <div class="text-sm flex items-center gap-4">
+        <a href="tel:+14696698878" class="text-gray-300 hover:text-gold transition">469-669-8878</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="min-h-screen p-6 bg-gray-950">
+    <div class="max-w-6xl mx-auto py-8">
+      <!-- Progress Steps -->
+      <div class="mb-8">
+        <div class="flex items-center justify-center space-x-4">
+          <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-gold text-black flex items-center justify-center font-bold">✓</div>
+            <span class="ml-2 text-sm text-gray-400">Details</span>
+          </div>
+          <div class="w-16 h-0.5 bg-gold"></div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-gold text-black flex items-center justify-center font-bold">2</div>
+            <span class="ml-2 text-sm text-gold">Payment</span>
+          </div>
+          <div class="w-16 h-0.5 bg-gray-700"></div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-gray-700 text-gray-400 flex items-center justify-center font-bold">3</div>
+            <span class="ml-2 text-sm text-gray-400">Confirmation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8">
+            <div class="mb-6">
+              <h1 class="text-3xl font-bold">Secure <span class="text-gold">Checkout</span></h1>
+              <p class="text-gray-400 mt-2">Complete your luxury transportation booking</p>
+            </div>
+
+            <!-- Customer Information Form -->
+            <div id="customer-info-section" class="mb-8">
+              <h2 class="text-xl font-semibold mb-4 text-gold">Contact Information</h2>
+              <form id="checkoutForm" class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Full Name *</label>
+                    <input type="text" id="full_name" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="John Doe" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+                    <input type="email" id="email" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="john@example.com" />
+                  </div>
+                </div>
+                
+                <div>
+                  <label class="block text-sm font-medium text-gray-300 mb-2">Phone Number *</label>
+                  <input type="tel" id="phone" required pattern="[0-9]{10,}" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="5551234567" />
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-300 mb-2">Special Requests (Optional)</label>
+                  <textarea id="notes" rows="3" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:border-gold focus:outline-none" placeholder="Any special requests or notes..."></textarea>
+                </div>
+              </form>
+            </div>
+
+            <!-- Payment Section -->
+            <div id="payment-section" class="hidden">
+              <h2 class="text-xl font-semibold mb-4 text-gold">Payment Information</h2>
+              
+              <!-- Security Badges -->
+              <div class="flex items-center gap-4 mb-6 text-sm text-gray-400">
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                  <span>Secure Checkout</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span>🔒 PCI Compliant</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span>Powered by Stripe</span>
+                </div>
+              </div>
+
+              <!-- Stripe Payment Element -->
+              <div id="payment-element"></div>
+              
+              <div id="payment-message" class="hidden mt-4 p-4 rounded"></div>
+
+              <!-- Submit Button -->
+              <button id="submit-payment" class="w-full mt-6 bg-gold text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gold-dark transition disabled:opacity-50 disabled:cursor-not-allowed">
+                <span id="button-text">Confirm & Pay</span>
+                <div id="button-spinner" class="hidden spinner mx-auto"></div>
+              </button>
+            </div>
+
+            <!-- Continue Button (shows before payment) -->
+            <button id="continue-to-payment" class="w-full bg-gold text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gold-dark transition">
+              Continue to Payment
+            </button>
+          </div>
+        </div>
+
+        <!-- Order Summary Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 sticky top-6">
+            <h2 class="text-xl font-semibold mb-4 text-gold">Booking Summary</h2>
+            
+            <div id="booking-summary" class="space-y-4">
+              <!-- Summary will be populated by JavaScript -->
+            </div>
+
+            <div class="border-t border-gray-700 mt-6 pt-4">
+              <div class="flex justify-between items-center text-lg font-bold">
+                <span>Total:</span>
+                <span class="text-gold" id="total-amount">$0.00</span>
+              </div>
+            </div>
+
+            <div class="mt-6 p-4 bg-black rounded border border-gray-800">
+              <p class="text-xs text-gray-400 text-center">
+                Your payment information is encrypted and secure. We never store your card details.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-gray-900 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="text-2xl font-bold text-gold">Nodaluxe</div>
+          <p class="text-gray-400 text-sm mt-2">Premium transportation & event experiences.</p>
+        </div>
+        <div>
+          <div class="font-semibold text-gold mb-4">Contact</div>
+          <div class="text-gray-400 text-sm space-y-2">
+            <div><a href="tel:+14696698878" class="hover:text-gold transition">469-669-8878</a></div>
+            <div><a href="mailto:info@nodaluxe.com" class="hover:text-gold transition">info@nodaluxe.com</a></div>
+          </div>
+        </div>
+        <div>
+          <div class="font-semibold text-gold mb-4">Quick Links</div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li><a href="/" class="hover:text-gold transition">Home</a></li>
+            <li><a href="/events.html" class="hover:text-gold transition">Events</a></li>
+            <li><a href="/book-now.html" class="hover:text-gold transition">Book Now</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold text-gold mb-4">Legal</div>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li><a href="/privacy-policy.html" class="hover:text-gold transition">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 Nodaluxe Experiences. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Get booking data from sessionStorage or URL params
+    let bookingData = {};
+    
+    try {
+      const stored = sessionStorage.getItem('bookingData');
+      if (stored) {
+        bookingData = JSON.parse(stored);
+      }
+    } catch (e) {
+      console.error('Error loading booking data:', e);
+    }
+
+    // Calculate estimated price (this is a simple estimation - real pricing would come from backend)
+    function calculatePrice(data) {
+      let basePrice = 150; // Base price
+      
+      if (data.service_type === 'hourly') basePrice = 200;
+      if (data.service_type === 'airport') basePrice = 120;
+      if (data.service_type === 'event') basePrice = 250;
+      
+      const passengers = parseInt(data.passengers) || 1;
+      if (passengers > 6) basePrice *= 1.5;
+      if (passengers > 12) basePrice *= 2;
+      
+      return Math.round(basePrice);
+    }
+
+    const totalAmount = bookingData.amount || calculatePrice(bookingData);
+    
+    // Display booking summary
+    const summaryDiv = document.getElementById('booking-summary');
+    summaryDiv.innerHTML = `
+      <div class="space-y-3 text-sm">
+        <div class="flex justify-between">
+          <span class="text-gray-400">Service Type:</span>
+          <span class="font-medium">${bookingData.service_type || 'Transportation'}</span>
+        </div>
+        ${bookingData.pickup_location ? `
+        <div class="flex justify-between">
+          <span class="text-gray-400">Pickup:</span>
+          <span class="font-medium text-right text-xs">${bookingData.pickup_location.substring(0, 30)}...</span>
+        </div>
+        ` : ''}
+        ${bookingData.dropoff_location ? `
+        <div class="flex justify-between">
+          <span class="text-gray-400">Drop-off:</span>
+          <span class="font-medium text-right text-xs">${bookingData.dropoff_location.substring(0, 30)}...</span>
+        </div>
+        ` : ''}
+        ${bookingData.event_date ? `
+        <div class="flex justify-between">
+          <span class="text-gray-400">Date:</span>
+          <span class="font-medium">${new Date(bookingData.event_date).toLocaleDateString()}</span>
+        </div>
+        ` : ''}
+        ${bookingData.passengers ? `
+        <div class="flex justify-between">
+          <span class="text-gray-400">Passengers:</span>
+          <span class="font-medium">${bookingData.passengers}</span>
+        </div>
+        ` : ''}
+      </div>
+    `;
+    
+    document.getElementById('total-amount').textContent = `$${totalAmount.toFixed(2)}`;
+
+    // Pre-fill customer info if available
+    if (bookingData.full_name) document.getElementById('full_name').value = bookingData.full_name;
+    if (bookingData.email) document.getElementById('email').value = bookingData.email;
+    if (bookingData.phone) document.getElementById('phone').value = bookingData.phone;
+
+    // Initialize Stripe
+    const stripe = Stripe('pk_test_51QO5uJP3lGLi2h0xwzIpv8FqJq0YO2Q7XfCgC8YgqpYXt0YVLzQ0H0KLq6Y7xRWr1U6Y0Y0Y0Y0Y0Y0Y0Y0Y0Y0Y0Y0Y'); // Replace with actual publishable key
+    let elements;
+    let paymentIntentId;
+
+    // Continue to payment button
+    document.getElementById('continue-to-payment').addEventListener('click', async () => {
+      const form = document.getElementById('checkoutForm');
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Show loading state
+      document.getElementById('continue-to-payment').disabled = true;
+      document.getElementById('continue-to-payment').textContent = 'Loading...';
+
+      // Collect customer information
+      const customerData = {
+        full_name: document.getElementById('full_name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        notes: document.getElementById('notes').value
+      };
+
+      // Merge with booking data
+      const completeBookingData = {
+        ...bookingData,
+        ...customerData,
+        booking_type: 'transportation',
+        amount: totalAmount
+      };
+
+      try {
+        // Create payment intent
+        const response = await fetch('/.netlify/functions/create-payment-intent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            amount: totalAmount * 100, // Convert to cents
+            currency: 'usd',
+            bookingData: completeBookingData
+          })
+        });
+
+        const { clientSecret, paymentIntentId: piId } = await response.json();
+        paymentIntentId = piId;
+
+        // Initialize Stripe Elements
+        elements = stripe.elements({ clientSecret });
+        const paymentElement = elements.create('payment');
+        paymentElement.mount('#payment-element');
+
+        // Show payment section, hide continue button
+        document.getElementById('customer-info-section').classList.add('hidden');
+        document.getElementById('continue-to-payment').classList.add('hidden');
+        document.getElementById('payment-section').classList.remove('hidden');
+
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to initialize payment. Please try again.');
+        document.getElementById('continue-to-payment').disabled = false;
+        document.getElementById('continue-to-payment').textContent = 'Continue to Payment';
+      }
+    });
+
+    // Handle payment submission
+    document.getElementById('submit-payment').addEventListener('click', async (e) => {
+      e.preventDefault();
+      
+      const submitButton = document.getElementById('submit-payment');
+      const buttonText = document.getElementById('button-text');
+      const buttonSpinner = document.getElementById('button-spinner');
+      
+      submitButton.disabled = true;
+      buttonText.classList.add('hidden');
+      buttonSpinner.classList.remove('hidden');
+
+      try {
+        const { error } = await stripe.confirmPayment({
+          elements,
+          confirmParams: {
+            return_url: `${window.location.origin}/checkout-success.html?payment_intent=${paymentIntentId}`
+          }
+        });
+
+        if (error) {
+          const messageDiv = document.getElementById('payment-message');
+          messageDiv.textContent = error.message;
+          messageDiv.classList.remove('hidden');
+          messageDiv.classList.add('bg-red-900', 'text-red-200');
+          
+          submitButton.disabled = false;
+          buttonText.classList.remove('hidden');
+          buttonSpinner.classList.add('hidden');
+        }
+      } catch (err) {
+        console.error('Payment error:', err);
+        submitButton.disabled = false;
+        buttonText.classList.remove('hidden');
+        buttonSpinner.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
