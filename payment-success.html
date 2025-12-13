@@ -196,14 +196,16 @@
   </footer>
 
   <script>
-    // Extract session_id from URL
+    // Extract session_id from URL with validation
     const urlParams = new URLSearchParams(window.location.search);
     const sessionId = urlParams.get('session_id');
     
-    if (sessionId) {
-      document.getElementById('sessionId').textContent = sessionId;
+    // Validate session ID format (Stripe session IDs start with 'cs_' or 'cs_test_')
+    const sessionIdElement = document.getElementById('sessionId');
+    if (sessionId && /^cs_(test_)?[a-zA-Z0-9]+$/.test(sessionId)) {
+      sessionIdElement.textContent = sessionId;
     } else {
-      document.getElementById('sessionId').textContent = 'N/A';
+      sessionIdElement.textContent = 'N/A';
     }
   </script>
 </body>

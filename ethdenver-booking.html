@@ -169,7 +169,7 @@
       <h2 class="text-3xl font-bold text-gold mb-6 text-center">Investment Packages</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Bronze Tier -->
-        <div class="tier-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectTier('Bronze', 500)">
+        <div class="tier-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectTier('Bronze', 500, this)">
           <div class="text-center mb-4">
             <h3 class="text-xl font-bold text-gray-300">Bronze</h3>
             <div class="text-3xl font-bold text-gold mt-2">$500</div>
@@ -198,7 +198,7 @@
         </div>
 
         <!-- Silver Tier -->
-        <div class="tier-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectTier('Silver', 1000)">
+        <div class="tier-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectTier('Silver', 1000, this)">
           <div class="text-center mb-4">
             <h3 class="text-xl font-bold text-gray-300">Silver</h3>
             <div class="text-3xl font-bold text-gold mt-2">$1,000</div>
@@ -233,7 +233,7 @@
         </div>
 
         <!-- Gold Tier -->
-        <div class="tier-card bg-gray-900 border-2 border-gold rounded-xl p-6 cursor-pointer" onclick="selectTier('Gold', 2500)">
+        <div class="tier-card bg-gray-900 border-2 border-gold rounded-xl p-6 cursor-pointer" onclick="selectTier('Gold', 2500, this)">
           <div class="absolute top-0 right-0 bg-gold text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
             POPULAR
           </div>
@@ -277,7 +277,7 @@
         </div>
 
         <!-- Platinum Tier -->
-        <div class="tier-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectTier('Platinum', 5000)">
+        <div class="tier-card bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer" onclick="selectTier('Platinum', 5000, this)">
           <div class="text-center mb-4">
             <h3 class="text-xl font-bold text-purple-400">Platinum</h3>
             <div class="text-3xl font-bold text-gold mt-2">$5,000</div>
@@ -486,7 +486,7 @@
     document.getElementById('testModeBanner').classList.remove('hidden');
 
     // Select tier function
-    function selectTier(tierName, price) {
+    function selectTier(tierName, price, element) {
       selectedTier = tierName;
       tierPrice = price;
 
@@ -494,7 +494,7 @@
       document.querySelectorAll('.tier-card').forEach(card => {
         card.classList.remove('selected');
       });
-      event.currentTarget.classList.add('selected');
+      element.classList.add('selected');
 
       // Show selected tier
       document.getElementById('selectedTierDisplay').classList.remove('hidden');
