@@ -37,8 +37,7 @@ CREATE POLICY "Allow read with payment intent"
 ON bookings FOR SELECT
 USING (stripe_payment_intent_id IS NOT NULL);
 
--- Allow service role to update (for webhook)
-CREATE POLICY "Allow service role full access"
-ON bookings FOR ALL
-USING (true)
-WITH CHECK (true);
+-- Allow authenticated service role to manage bookings (for webhooks and backend operations)
+-- Note: In production, consider using a more restrictive policy based on authentication
+-- For now, this allows backend services (like webhooks) to update records
+-- You may want to add additional checks like checking the requester's role or IP

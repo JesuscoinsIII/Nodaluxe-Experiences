@@ -30,12 +30,15 @@ exports.handler = async (event, context) => {
     // Parse request body
     const { amount, currency = 'usd', bookingData } = JSON.parse(event.body);
 
+    // Minimum amount (in cents) - configurable via environment variable
+    const MIN_AMOUNT = parseInt(process.env.MIN_PAYMENT_AMOUNT || '50');
+
     // Validate amount
-    if (!amount || amount < 50) {
+    if (!amount || amount < MIN_AMOUNT) {
       return {
         statusCode: 400,
         headers: { 'Access-Control-Allow-Origin': '*' },
-        body: JSON.stringify({ error: 'Invalid amount. Minimum $0.50 USD.' })
+        body: JSON.stringify({ error: `Invalid amount. Minimum $${(MIN_AMOUNT / 100).toFixed(2)} USD.` })
       };
     }
 

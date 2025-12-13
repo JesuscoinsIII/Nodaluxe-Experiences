@@ -205,10 +205,15 @@ async function handlePaymentCanceled(paymentIntent) {
 // Send admin notification
 async function sendAdminNotification(booking, paymentIntent) {
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
-  const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'info@nodaluxe.com';
+  const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL;
   
   if (!RESEND_API_KEY) {
     console.log('Resend API key not configured, skipping admin notification');
+    return;
+  }
+
+  if (!NOTIFICATION_EMAIL) {
+    console.error('NOTIFICATION_EMAIL environment variable is required but not set');
     return;
   }
 

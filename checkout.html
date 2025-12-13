@@ -305,11 +305,19 @@
     if (bookingData.phone) document.getElementById('phone').value = bookingData.phone;
 
     // Initialize Stripe
-    // TODO: Replace with your actual Stripe publishable key
+    // IMPORTANT: Replace 'pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE' with your actual Stripe publishable key
     // Get it from: https://dashboard.stripe.com/apikeys
     // Use pk_test_... for testing, pk_live_... for production
-    // For Netlify, you can inject this via environment variable using a build plugin
+    // This key is safe to expose in client-side code (it's a PUBLIC key)
+    // See STRIPE_SETUP.md for detailed setup instructions
     const STRIPE_KEY = 'pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE';
+    
+    if (STRIPE_KEY === 'pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE') {
+      console.error('⚠️ Stripe publishable key not configured! Payment will not work.');
+      console.error('Please update the STRIPE_KEY variable in this file with your actual Stripe publishable key.');
+      console.error('See STRIPE_SETUP.md for instructions.');
+    }
+    
     const stripe = Stripe(STRIPE_KEY);
     let elements;
     let paymentIntentId;
