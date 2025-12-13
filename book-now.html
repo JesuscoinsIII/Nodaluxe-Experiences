@@ -307,9 +307,16 @@
       });
     }
 
-    // Initialize autocomplete for both fields
-    setupLocationAutocomplete('pickup_location', 'pickup_dropdown');
-    setupLocationAutocomplete('dropoff_location', 'dropoff_dropdown');
+    // Initialize autocomplete for both fields after DOM is loaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        setupLocationAutocomplete('pickup_location', 'pickup_dropdown');
+        setupLocationAutocomplete('dropoff_location', 'dropoff_dropdown');
+      });
+    } else {
+      setupLocationAutocomplete('pickup_location', 'pickup_dropdown');
+      setupLocationAutocomplete('dropoff_location', 'dropoff_dropdown');
+    }
 
     // Set minimum date to today
     const eventDateInput = document.getElementById('event_date');
